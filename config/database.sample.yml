@@ -11,9 +11,9 @@
 development:
   adapter: postgresql
   encoding: utf-8
-  database: catarse_development
+  database: roundseed_development
   pool: 5
-  username: catarse
+  username: roundseed
   
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -37,14 +37,14 @@ development:
 test: &test
   adapter: postgresql
   encoding: utf-8
-  database: catarse_test
+  database: roundseed_test
   pool: 5
-  username: catarse
+  username: roundseed
   
 
 production:
   adapter: postgresql
   encoding: utf-8
-  database: catarse_production
+  database: roundseed_production
   pool: 5
-  username: catarse
+  username: roundseed
