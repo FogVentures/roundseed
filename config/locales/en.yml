@@ -1,7 +1,7 @@
 en:
   or: or
   newsletter_ok_header: "You are subscribed to the newsletter!"
-  newsletter_ok_body: "Your email is now in our newsletter list, thanks for subscribing!"
+  newsletter_ok_body: "Woo-hoo! Thanks for subscribing!"
   newsletter_error_header: "Woops! There was an error."
   newsletter_error_body: "Your email could not be added to our newsletter list, please try again later!"
   views:
@@ -404,7 +404,7 @@ en:
       rewards_title: Rewards
       submit: "Submit project"
     index_header:
-      subtitle_html: "Fund projects collaboratively and become part of something bigger.<br/>Promote a collective catharsis! You're the missing part in this story."
+      subtitle_html: "Fund the fun together!<br/>Promote what you care about most, and find friends too! You're the missing part in this story."
       title: "Update dammit!"
     new:
       subtitle: "The time to make it happen is now! We really want to know what you're up to..."
