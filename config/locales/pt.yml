@@ -536,15 +536,15 @@ pt:
     failure:
       error: "Ocorreu um erro ao realizar o login. Por favor, tente novamente."
   site:
-    host: catarse.me
-    base_url: "http://catarse.me"
-    blog: "http://blog.catarse.me/"
+    host: roundseed.com
+    base_url: "http://roundseed.com"
+    blog: "http://www.roundseed.com/blog/"
     email:
       contact: contato@catarse.me
       payments: financeiro@catarse.me
       projects: projetos@catarse.me
       system: system@catarse.me
-    facebook: "http://www.facebook.com/Catarse.me"
+    facebook: "http://www.facebook.com/roundseed"
     name: Catarse
     title: "A primeira plataforma de financiamento colaborativo de projetos criativos do Brasil"
     twitter: Catarse_
