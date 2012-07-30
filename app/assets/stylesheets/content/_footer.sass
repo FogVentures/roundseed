@@ -1,6 +1,6 @@
 .footer
   +grid-system(16)
-  +border-radius(4px)
+  +border-radius(8px)
   padding: 0 10px 0 10px
   border: 1px $df_gryn solid
   background: $ultra_gryn !important
@@ -8,24 +8,23 @@
     padding-top: 30px
     padding-bottom: 10px
     h3
-      font-family: 'Lato-Bold'
-      font-size: 18px
-      color: $pink
+      font-family: 'Lato-Light'
+      font-size: 21px
+      color: white
       padding-bottom: 40px
       padding-top: 5px
     .info
       +grid(4)
       +grid-suffix(1)
       h3
-        background: url($images_path+'faq_icon18x18.png') left 5px no-repeat
+        background: url($images_path+'info.png') left 5px no-repeat
         text-indent: 34px
       ul
         li
           margin-bottom: 32px
           a
-            font-family: "Lato-Regular"
+            font-family: "Lato-Hairline"
             font-size: 18px
-            font-weight: lighter
             color: white
             text-decoration: none
             &:hover
@@ -35,7 +34,7 @@
       +grid(5)
       +grid-suffix(1)
       h3
-        background: url($images_path+'opendata_icon26x26.png') left top no-repeat
+        background: url($images_path+'stats.png') left top no-repeat
         text-indent: 44px
       ul
         display: block
@@ -45,15 +44,16 @@
           margin-bottom: 20px
           h5
             float: left
-            font-family: 'Lato-Bold'
-            font-size: 20px
+            text-indent: 10px
+            font-family: 'Lato-Regular'
+            font-size: 22px
             color: white
             padding-right: 10px
           p
             padding-top: 3px
             float: left
             text-transform: uppercase
-            font-family: Myriad Pro
+            font-family: "Lato-Light"
             font-size: 16px
             color: white
             +opacity(0.5)
@@ -61,12 +61,12 @@
     .social
       +grid(5)
       h3
-        background: url($images_path+'heart_icon17x14.png') left 6px no-repeat
+        background: url($images_path+'social.png') left 2px no-repeat
         text-indent: 32px
         &.newsletter
           padding-top: 30px
           padding-bottom: 20px
-          background: url($images_path+'newsletter_icon18x15.png') left 32px no-repeat
+          background: url($images_path+'news.png') left 32px no-repeat
       .twitter
         margin-bottom: 20px
       form
