@@ -50,7 +50,7 @@ html lang="#{I18n.locale}" xmlns:fb="http://ogp.me/ns/fb#"
                 h5= @total_backs
                 p= t('footer.stats.backs')
               li
-                h5= number_to_currency @total_backed, :unit => 'R$', :precision => 0, :delimiter => '.'
+                h5= number_to_currency @total_backed, :unit => '$', :precision => 0, :delimiter => '.'
                 p= t('footer.stats.total_backed')
               li
                 h5= @total_users
@@ -69,7 +69,7 @@ html lang="#{I18n.locale}" xmlns:fb="http://ogp.me/ns/fb#"
             .facebook
               .fb-like data-href="http://facebook.com/roundseed" data-send="false" data-width="171" data-show-faces="true"
             h3.newsletter= t('footer.titles.newsletter')
-            = form_tag 'http://catarse.us5.list-manage.com/subscribe/post?u=ebfcd0d16dbb0001a0bea3639&amp;id=149c39709e', id: 'mailee-form', method: 'post' do
+            = form_tag 'http://fogventures.us1.list-manage.com/subscribe/post?u=f36233d353dcb0dff78fa2882&amp;id=795186bca6', id: 'mailee-form', method: 'post' do
               = text_field_tag 'EMAIL', nil, placeholder: 'email@email.com', label: 'email'
               = submit_tag 'submit'
           .clearfix
@@ -77,9 +77,9 @@ html lang="#{I18n.locale}" xmlns:fb="http://ogp.me/ns/fb#"
       .multide
         = link_to '#' do
           = image_tag('catarse/multide_logo55x36.png', :target => '_blank', :alt => 'MULTIDE')
-      .comum
-        = link_to 'http://comum.cc', :target => '_blank' do
-          = image_tag('catarse/comum_logo127x27.png', :alt => 'COMUM')
+      .fogventures
+        = link_to 'http://fogventures.com', :target => '_blank' do
+          = image_tag('catarse/fogventures.png', :alt => 'FogVentures')
       .power
         = link_to 'http://engage.is', :target => '_blank' do
           = image_tag('catarse/power_logo200x43.png', :alt => 'POWER TO THE CROWD')
