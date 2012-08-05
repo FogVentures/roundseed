@@ -23,8 +23,8 @@ en:
   footer:
     titles:
       info: "Useful Information"
-      opendata: "nice statistics"
-      social: "like RoundSeed?"
+      opendata: "Under the Hood"
+      social: "Connect & Share"
       newsletter: "receive our newslatter"
     stats:
       backers: Backers
@@ -49,9 +49,8 @@ en:
       blog: Latest from the blog
       facebook: "Like Us!"
       twitter: "@roundseed"
-      newsletter: "Get the email!"
-      faq: "Have a question?"
-      schedule: calendar
+      newsletter: "Get the newsletter!"
+
     buttons:
       newsletter: submit!
   sections:
@@ -221,12 +220,12 @@ en:
       quick_explore: "Quick search"
       recent: Recent
       recommended: Recommended
-      subtitle: "Explore the projects, find the ones that touch you, and make them happen!"
+      subtitle: "Find something that matters to you and make an impact!"
       successful: Successful
-      title: "Discover amazing projects"
-    title: "Explore the projects"
+      title: "Explore the Projects"
+    title: "Explore"
     project:
-      empty: "Hey, we didn't find any project with the text you searched. Wanna try some new words? =D"
+      empty: "Whoa! We didn't find anything'. Give it another go."
   formtastic:
     hints:
       backer:
@@ -536,9 +535,9 @@ en:
     failure:
       error: "There was an error while loggin in. Please try again."
   site:
-    host: roundseed.com
-    base_url: "http://roundseed.com"
-    blog: "http://www.roundseed.com/blog/"
+    host: catarse.me
+    base_url: "http://catarse.me"
+    blog: "http://blog.catarse.me/"
     email:
       contact: contact@roundseed.com
       payments: payments@roundseed.com
