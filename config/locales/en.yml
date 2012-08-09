@@ -490,10 +490,10 @@ en:
       links_hint: "Leave us as many links as you have, so we can get to know your work and your project better. Doesn't have to be something formal or fancy, just a few useful links."
       video: "Your project already have a video?"
       video_hint: "A vimeo link"
-      twitter: "Have twitter account?"
-      facebook: "Have facebook account?"
-      blog: "Have a blog about the project?"
-      know_us_via: "How did you meet Catarse?"
+      twitter: "Have a Twitter account?"
+      facebook: "Have a Facebook account?"
+      blog: "How about a project blog or website?"
+      know_us_via: "How'd you hear about RoundSeed?"
       how_works: "How to mobilize backers to raise $ needed for enforcement?"
       project_warning:
         content_html: "Want to have your project selected? Don't forget to read %{link}."
@@ -504,7 +504,7 @@ en:
       subtitle: "The time to make it happen is now! We really want to know what you're up to..."
       title: "Submit your project"
     twitter:
-      take_a_look: "Check out the project %{name} on @Catarse_"
+      take_a_look: "Check out the project %{name} on @RoundSeed"
     video_embed:
       a_project_by_html: "A project by %{link} on"
   projects_mailer:
@@ -519,9 +519,9 @@ en:
   remaining_plural: left
   remaining_singular: left
   remove: remove
-  require_admin: "You must be admin to perform this action."
-  require_login: "You must be logged in to perform this action."
-  require_permission: "You don't have permission to perform this action."
+  require_admin: "Only admins can do this."
+  require_login: "You have to be logged in to do that."
+  require_permission: "Bummer. Permission to do that is above your pay grade."
   reward:
     display_remaining: "%{remaining} of %{maximum} available"
     dont_want: "I don't want a reward"
@@ -531,9 +531,9 @@ en:
     auth:
       success: "Successfully logged in. Welcome, %{name}!"
     destroy:
-      success: "Successfully logged out. See you!"
+      success: "You're logged out. See you!"
     failure:
-      error: "There was an error while loggin in. Please try again."
+      error: "There was an error while logging in. Try again."
   site:
     host: catarse.me
     base_url: "http://catarse.me"
@@ -549,6 +549,7 @@ en:
     twitter: roundseed
   static:
     faq:
+      subtitle: "Quickly find answers to the most common questions."
       title: "Frequently Asked Questions"
     guidelines:
       accept: "I have read and understood how RoundSeed works."
