@@ -592,7 +592,7 @@ en:
       social_info: "Contact info"
       twitter: "twitter ( username )"
       facebook_link: "facebook profile link"
-      other_link: "another internet page"
+      other_link: "another link"
       change_password: "Change my password"
       current_password_hint: "<i>We need your current password to confirm your changes.</i>"
       email_hint: "Your email will only be used for communications from Catarse and from the projects you back. It won't be visible in your profile. When you back a project, we will give your email to the project owner so he can provide your rewards."
