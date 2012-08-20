@@ -69,7 +69,7 @@ class Backer < ActiveRecord::Base
   end
 
   def display_value
-    number_to_currency value, :unit => "R$", :precision => 0, :delimiter => '.'
+    number_to_currency value, :unit => "$", :precision => 0, :delimiter => '.'
   end
 
   def display_confirmed_at
@@ -81,7 +81,7 @@ class Backer < ActiveRecord::Base
   end
 
   def display_platform_fee(fee=7.5)
-    number_to_currency platform_fee(fee), :unit => "R$", :precision => 2, :delimiter => '.'
+    number_to_currency platform_fee(fee), :unit => "$", :precision => 2, :delimiter => '.'
   end
 
   def payment_service_fee
