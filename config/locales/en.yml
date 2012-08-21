@@ -580,8 +580,8 @@ en:
         twitter: "Profile on twiiter"
     backs:
       anonymous: "Anonymous back."
-      no_backs: "%{name} haven't backed any project yet. But we know it's just a matter of time! :D"
-      no_backs_current_user_html: "You haven't backed any project yet. What about <a href=\"/\">starting now</a>?"
+      no_backs: "%{name} hasn't backed any project yet. But we know it's just a matter of time! ;-)"
+      no_backs_current_user_html: "You haven't backed a project yet. What about <a href=\"/\">starting now</a>?"
       no_reward: "You didn't pick a reward"
       title: "Projects %{name} has backed"
       title_current_user: "Projects I've backed"
