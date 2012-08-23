@@ -64,14 +64,14 @@ en:
         one: "approximately 1 year"
         other: "approximately %{count} years"
       almost_x_years:
-        one: "almost 1 ano"
+        one: "almost 1 year"
         other: "almost %{count} years"
       half_a_minute: "thirty seconds"
       less_than_x_minutes:
         one: "less than a minute"
         other: "less than %{count} minutes"
       less_than_x_seconds:
-        one: "less than 1 segundo"
+        one: "less than 1 second"
         other: "less than %{count} seconds"
       over_x_years:
         one: "more than 1 year"
@@ -83,10 +83,10 @@ en:
         one: "1 minute"
         other: "%{count} minutes"
       x_months:
-        one: "1 mês"
+        one: "1 month"
         other: "%{count} months"
       x_seconds:
-        one: "1 segundo"
+        one: "1 second"
         other: "%{count} seconds"
     prompts:
       day: Day
