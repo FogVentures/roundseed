@@ -596,7 +596,7 @@ en:
       other_link: "another link"
       change_password: "Change my password"
       current_password_hint: "<i>We need your current password to confirm your changes.</i>"
-      email_hint: "Your email will only be used for communications from RoundSeed and from the projects you back. It won't be visible in your profile. When you back a project, we will give your email to the project owner so he can provide your rewards."
+      email_hint: "Your email will only be used for communications from RoundSeed and from the projects you back. It won't be visible in your profile. Only when you back a project, will we give your email to the project owner so he can provide your rewards."
       email_tooltip: "Click here to fill your email..."
       gravatar_hint_html: "Want to change your picture? Use %{link} with your email. It's as simple as uploading an image and works for other sites as well ;)"
       local_avatar: "My avatar"
