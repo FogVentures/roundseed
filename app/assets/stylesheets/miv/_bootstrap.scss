@@ -8,6 +8,104 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
+/* Base class */
+.bs-docs-launch {
+  position: relative;
+  margin: 15px 0;
+  padding: 39px 19px 14px;
+  *padding-top: 19px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+/* Echo out a label for the example */
+.bs-docs-launch:after {
+  content: "Launching a Project";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #9da0a4;
+  -webkit-border-radius: 4px 0 4px 0;
+     -moz-border-radius: 4px 0 4px 0;
+          border-radius: 4px 0 4px 0;
+}
+/* Base class */
+.bs-docs-backer {
+  position: relative;
+  margin: 15px 0;
+  padding: 39px 19px 14px;
+  *padding-top: 19px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+/* Echo out a label for the example */
+.bs-docs-backer:after {
+  content: "Backing a Project";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #9da0a4;
+  -webkit-border-radius: 4px 0 4px 0;
+     -moz-border-radius: 4px 0 4px 0;
+          border-radius: 4px 0 4px 0;
+}
+.collapse {
+  -webkit-transition: height 0.35s ease;
+  -moz-transition: height 0.35s ease;
+  -ms-transition: height 0.35s ease;
+  -o-transition: height 0.35s ease;
+  transition: height 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  height: 0;
+}
+.collapse.in {
+  height: auto;
+}
+.accordion {
+  margin-bottom: 20px;
+}
+
+.accordion-group {
+  margin-bottom: 2px;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.accordion-heading {
+  border-bottom: 0;
+}
+
+.accordion-heading .accordion-toggle {
+  display: block;
+  padding: 8px 15px;
+}
+
+.accordion-toggle {
+  cursor: pointer;
+}
+
+.accordion-inner {
+  padding: 9px 15px;
+  border-top: 1px solid #e5e5e5;
+}
 .modal-open .dropdown-menu {
   z-index: 2050;
 }
@@ -3782,27 +3880,7 @@ a.thumbnail:hover {
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-.accordion {
-  margin-bottom: 18px;
-}
-.accordion-group {
-  margin-bottom: 2px;
-  border: 1px solid #e5e5e5;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-}
-.accordion-heading {
-  border-bottom: 0;
-}
-.accordion-heading .accordion-toggle {
-  display: block;
-  padding: 8px 15px;
-}
-.accordion-inner {
-  padding: 9px 15px;
-  border-top: 1px solid #e5e5e5;
-}
+
 .carousel {
   position: relative;
   margin-bottom: 18px;
@@ -3972,19 +4050,7 @@ a.thumbnail:hover {
 .fade.in {
   opacity: 1;
 }
-.collapse {
-  -webkit-transition: height 0.35s ease;
-  -moz-transition: height 0.35s ease;
-  -ms-transition: height 0.35s ease;
-  -o-transition: height 0.35s ease;
-  transition: height 0.35s ease;
-  position: relative;
-  overflow: hidden;
-  height: 0;
-}
-.collapse.in {
-  height: auto;
-}
+
 /*!
  * Bootstrap Responsive v2.0.2
  *

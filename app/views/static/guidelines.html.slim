@@ -5,7 +5,54 @@
       .title
         h1= t('.title')
         h2= t('.subtitle')
-      .clearfix
+      .default_text
+        h2 Motivate, Connect & Engage
+        .row
+          .span12.columns
+          #accordion2.accordion
+            .accordion-group
+              .accordion-heading
+                a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapseOne"
+                  | What is RoundSeed all about?
+              #collapseOne.accordion-body.collapse
+                .accordion-inner
+                  | RoundSeed enables those of you with an idea or a desire to make something happen, possible.
+                  | Tell your story through a short video, connect with others who share your passion and together, turn your passion into a reality.
+            .accordion-group
+              .accordion-heading
+                a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapse2"
+                  | Make a Video
+              #collapse2.accordion-body.collapse
+                .accordion-inner
+                  | Create a short 3-5 minute video introducing yourself, your product, project or venture. Use the video to convey your passion, while also informing others why your looking to raise funds and what the funds will be used for. Share what perks or rewards that you are offering and how they tie in to your project. Be awesome. Be detailed. Be respectful.
+            .accordion-group
+              .accordion-heading
+                a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapse3"
+                  | Ingredients
+              #collapse3.accordion-body.collapse
+                .accordion-inner
+                  | Sugar and spice.
+            .accordion-group
+              .accordion-heading
+                a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapse4"
+                  | Ingredients
+              #collapse4.accordion-body.collapse
+                .accordion-inner
+                  | Sugar and spice.
+            .accordion-group
+              .accordion-heading
+                a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapse5"
+                  | Ingredients
+              #collapse5.accordion-body.collapse
+                .accordion-inner
+                  | Sugar and spice.
+            .accordion-group
+              .accordion-heading
+                a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapse6"
+                  | Ingredients
+              #collapse6.accordion-body.collapse
+                .accordion-inner
+                  | Sugar and spice.
       .bootstrap-alert
         .alert.alert-info
           #how_it_works= render 'how_it_works'

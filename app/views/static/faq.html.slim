@@ -5,35 +5,115 @@
       .title
         h1= t('.title')
         h2= t('.subtitle')
-      .text.default_text
+      .default_text
         h2 Project & Campaign Owner Backgrounder
-        h3 What is RoundSeed?
-        p RoundSeed is...
-        h3 How much should I ask for? 
-        p You should figure out how much you need.  Then remember that you will have administration and processing fees totaling about 7.5% of what you raise. Also, consider the cost of whatever perk or reward you want to give to your project supporters.  And not just the cost of the item, but also the cost of getting the item into their hands.
-        p Stamps may be forever, but they're also forever costly.
-        h3 How long should I run my Project?
-        p We recommend 30 days.  You can run it longer, and that may even make sense for a general fundraiser, but for "startup" projects 30 days is recommended.
-        h3 What kind of rewards should I give?
-        p Creative, personal, free (inexpensive to your project at least).  You should also consider how to leverage your rewards in different ways to raise the odds of success for your project.
-        p For example, you might want to have a limited number of awesome rewards relative to the contribution amount. Think of this like a "party starter"...
-        p Donated items
-        p Your product!
-        h3 What if I don't meet my goal?
-        p First, we're sorry it didn't work out.  It does happen and we hate it when it does. However, you likely gained the best insights from your campaign itself.  We're big fans of "If at first you don't succeed, try, try again."  So, go ahead and make some of those adjustments, incorporate some of your first campaign's feedback and let's do it again.
-        p Your backers won't be charged if your project didn't meet its funding goals so you don't have to send refunds with your Thank You notes (you were going to write thank you notes, right?)
-        h3 How do I set up scheduled giving? 
-        p We work with you to make this happen, and we're happy to do it - for non-profits.  Why scheduled gifts for non-profits? Because we love the idea of people supporting causes with scheduled gifts.  It's predictable giving for the backers and eliminates the expense of paying people or losing valuable resources to placing annoying phone calls and envelope stuffing when they can be better used to do so much more.
+        .bs-docs-launch
+          .row
+            .span12.columns
+            #accordion2.accordion
+              .accordion-group
+                .accordion-heading
+                  a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapseOne"
+                    | What is RoundSeed all about?
+                #collapseOne.accordion-body.collapse
+                  .accordion-inner
+                    | RoundSeed is...
+              .accordion-group
+                .accordion-heading
+                  a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapseTwo"
+                    | How much should I ask for?
+                #collapseTwo.accordion-body.collapse
+                  .accordion-inner
+                    | You should figure out how much you need.  Then remember that you will have administration and processing fees totaling about 7.5% of what you raise. 
+                      Also, consider the cost of whatever perk or reward you want to give to your project supporters.  And not just the cost of the item, but also the cost of getting the item into their hands. 
+                      Stamps may be forever, but they're also forever costly.
+              .accordion-group
+                .accordion-heading
+                  a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapseThree"
+                    | How long should I run my Project?
+                #collapseThree.accordion-body.collapse
+                  .accordion-inner
+                    | We recommend 30 days.  You can run it longer, and that may even make sense for a general fundraiser, but for "startup" projects 30 days is recommended.
+              .accordion-group
+                .accordion-heading
+                  a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapseFour"
+                    | What kind of rewards should I give?
+                #collapseFour.accordion-body.collapse
+                  .accordion-inner
+                    | Creative, personal, free (inexpensive to your project at least).
+                      You should also consider how to leverage your rewards in different ways to raise the odds of success for your project.
+                      For example, you might want to have a limited number of awesome rewards relative to the contribution amount. Think of this like a "party starter"... 
+                      Donated items. And best of all, your product!
+              .accordion-group
+                .accordion-heading
+                  a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapseFive"
+                    | What if I don't meet my goal?
+                #collapseFive.accordion-body.collapse
+                  .accordion-inner
+                    | First, we're sorry it didn't work out.  It does happen and we hate it when it does. However, you likely gained the best insights from your campaign itself. 
+                      We're big fans of "If at first you don't succeed, try, try again."  So, go ahead and make some of those adjustments, incorporate some of your first campaign's feedback and let's do it again.
+        			  Your backers won't be charged if your project didn't meet its funding goals so you don't have to send refunds with your Thank You notes (you were going to write thank you notes, right?)
+              .accordion-group
+                .accordion-heading
+                  a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapseSix"
+                    | How do I set up scheduled giving?
+                #collapseSix.accordion-body.collapse
+                  .accordion-inner
+                    | We work with you to make this happen, and we're happy to do it - for non-profits.  Why scheduled gifts for non-profits? Because we love the idea of people supporting causes with scheduled gifts.
+                      It's predictable giving for the backers and eliminates the expense of paying people or losing valuable resources to placing annoying phone calls and envelope stuffing when they can be better used to do so much more.
+    .static_default
+      .default_text
         h2 Project Backer Backgrounder
-        h3 How do I back a project / campaign / idea?
-        h3 Will I be charged immediately?
-        h3 What happens if a project doesn't fund?
-        h3 How do I pay?
-        h3 How do I share my backing a project if I'm not on Facebook? (or Twitter, LinkedIn, etc.) How do I tell them to visit RoundSeed?
-        h3 Can I fund a project again if it doesn't reach it's goal? Or do I just get a refund?
-		
-		#{link_to 'Fog Ventures', 'http://www.fogventures.com/', :target => :_blank}.
+        .bs-docs-backer
+          .row
+            .span12.columns
+            #accordion3.accordion2
+              .accordion-group
+                .accordion-heading
+                  a.accordion-toggle data-parent="#accordion3" data-toggle="collapse" href="#collapseSeven"
+                    | How do I back a project / campaign / idea?
+                #collapseSeven.accordion-body.collapse
+                  .accordion-inner
+                    | Answer
+              .accordion-group
+                .accordion-heading
+                  a.accordion-toggle data-parent="#accordion3" data-toggle="collapse" href="#collapseEight"
+                    | Will I be charged immediately?
+                #collapseEight.accordion-body.collapse
+                  .accordion-inner
+                    | Answer
+              .accordion-group
+                .accordion-heading
+                  a.accordion-toggle data-parent="#accordion3" data-toggle="collapse" href="#collapseNine"
+                    | What happens if a project doesn't fund?
+                #collapseNine.accordion-body.collapse
+                  .accordion-inner
+                    | Answer
+              .accordion-group
+                .accordion-heading
+                  a.accordion-toggle data-parent="#accordion3" data-toggle="collapse" href="#collapseTen"
+                    | How do I pay?
+                #collapseTen.accordion-body.collapse
+                  .accordion-inner
+                    | Answer
+              .accordion-group
+                .accordion-heading
+                  a.accordion-toggle data-parent="#accordion3" data-toggle="collapse" href="#collapseEleven"
+                    | How do I share a project if I'm not on Facebook? (or Twitter, LinkedIn, etc.) How do I tell them to visit RoundSeed?
+                #collapseEleven.accordion-body.collapse
+                  .accordion-inner
+                    | Answer
+              .accordion-group
+                .accordion-heading
+                  a.accordion-toggle data-parent="#accordion3" data-toggle="collapse" href="#collapseTwelve"
+                    | Can I fund a project again if it doesn't reach it's goal? Or do I just get a refund?
+                #collapseTwelve.accordion-body.collapse
+                  .accordion-inner
+                    | Answer
 
+    .static_default
+      .text.default_text		
+		#{link_to 'Fog Ventures', 'http://www.fogventures.com/', :target => :_blank}.
         h3 Other Social
         p here: #{link_to t('site.blog'), t('site.blog'), :target => :_blank}.
         p and here: #{link_to "@#{t('site.twitter')}", "http://twitter.com/#{t('site.twitter')}", :target => :_blank}.
