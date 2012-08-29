@@ -22,8 +22,9 @@ class User < ActiveRecord::Base
                   :remember_me,
                   :name,
                   :nickname,
-                  :bio,
                   :image_url,
+                  :uploaded_image,
+                  :bio,
                   :newsletter,
                   :full_name,
                   :address_street,
@@ -45,7 +46,7 @@ class User < ActiveRecord::Base
   include Rails.application.routes.url_helpers
   extend ActiveSupport::Memoizable
 
-  mount_uploader :image_url, LogoUploader
+  mount_uploader :uploaded_image, LogoUploader
 
   validates_presence_of :provider, :uid
   validates_uniqueness_of :uid, :scope => :provider
@@ -89,7 +90,6 @@ class User < ActiveRecord::Base
   scope :by_key, ->(key){ where('EXISTS(SELECT true FROM backers WHERE backers.user_id = users.id AND backers.key ~* ?)', key) }
   scope :has_credits, joins(:user_total).where('user_totals.credits > 0')
   scope :order_by, ->(sort_field){ joins(:user_total).order(sort_field) }
-  before_save :fix_twitter_user
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -141,8 +141,8 @@ class User < ActiveRecord::Base
       user.email = auth["extra"]["user_hash"]["email"] if auth["extra"] and auth["extra"]["raw_info"] and user.email.nil?
       user.nickname = auth["info"]["nickname"]
       user.bio = auth["info"]["description"][0..139] if auth["info"]["description"]
-      user.image_url = auth["info"]["image"]
       user.locale = I18n.locale.to_s
+      user.image_url =  auth["info"]["image"]
     end
   end
 
@@ -223,11 +223,11 @@ class User < ActiveRecord::Base
     new_user.save
   end
 
-  protected
   def fix_twitter_user
     self.twitter.gsub! /@/, '' if self.twitter
   end
 
+  protected
   def password_required?
     provider == 'devise' && (!persisted? || !password.nil? || !password_confirmation.nil?)
   end
@@ -235,6 +235,6 @@ class User < ActiveRecord::Base
   # Returns a Gravatar URL associated with the email parameter, uses local avatar if available
   def gravatar_url
     return unless email
-    "http://gravatar.com/avatar/#{Digest::MD5.new.update(email)}.jpg?default=" + (image_url.to_s ? "#{I18n.t('site.base_url')}#{image_url}" : "#{I18n.t('site.base_url')}/assets/user.png")
-  end
+    "http://gravatar.com/avatar/#{Digest::MD5.new.update(email)}.jpg?default=#{I18n.t('site.base_url')}/assets/user.png"
+ end
 end
