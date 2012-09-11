@@ -2,8 +2,8 @@ en:
   or: or
   newsletter_ok_header: "You are subscribed to the newsletter!"
   newsletter_ok_body: "Woo-hoo! Thanks for subscribing!"
-  newsletter_error_header: "Woops! There was an error."
-  newsletter_error_body: "Your email could not be added to our newsletter list, please try again later!"
+  newsletter_error_header: "Whoops! There was an error."
+  newsletter_error_body: "Your email couldn't be added to the newsletter. Please try again later."
   views:
     pagination:
       next: next
@@ -14,10 +14,10 @@ en:
       subtitle: backers
     goal:
       subtitle: "total of %{total}"
-  project_by: "project by"
-  tell_about_this_back: "Tell the world about your support!"
-  share_my_backs: "See the projects that i support on RoundSeed!"
-  tell_about_this_project: "Tell the world about your project!"
+  project_by: "A project by"
+  tell_about_this_back: "Tell others about that you supported this project!"
+  share_my_backs: "See the projects that I've supported on RoundSeed!"
+  tell_about_this_project: "Share your project with others!"
   share_my_projects: "See my projects on RoundSeed!"
   count_backed_projects: "backed %{total} projects"
   footer:
@@ -25,7 +25,7 @@ en:
       info: "Useful Information"
       opendata: "Under the Hood"
       social: "Connect & Share"
-      newsletter: "receive our newslatter"
+      newsletter: "Get the newsletter"
     stats:
       backers: Backers
       backs: Backs
@@ -35,19 +35,19 @@ en:
       active_projects: "Live Projects"
     links:
       how_works: "How It Works"
-      faq: F.A.Q./Help
+      faq: "F.A.Q./Help"
       terms: "Terms of Use"
       policy: "Privacy Policy"
-      contact: Contact
+      contact: "Contact Us"
   main:
     links:
-      selected: "See more featured projects"
-      expiring: "More projects about to expire"
-      recents: "Browse other recent projects"
+      selected: "See other featured projects"
+      expiring: "More project about to expire"
+      recents: "Browse more recent projects"
   sidebar:
     titles:
-      blog: Latest from the blog
-      facebook: "Like Us!"
+      blog: "Blog Bursts!"
+      facebook: "Connect with Us!"
       twitter: "@roundseed"
       newsletter: "Get the newsletter!"
 
@@ -55,13 +55,13 @@ en:
       newsletter: submit!
   sections:
     selection:
-      title: Featured
+      title: Featured Projects
     expiring:
-      title: Ending Soon
+      title: Projects Ending Soon
     recents:
-      title: Just Launched
+      title: Recently Launched
     partners:
-      title: Our Partners
+      title: Partner Projects
   "no": "No"
   "yes": "Yes"
   accept_terms_html: "I have read and accept the %{link}."
@@ -71,7 +71,7 @@ en:
         user:
           attributes:
             email:
-              not_found: "We didn't recognize your email. Please verify the address or create a new account."
+              not_found: "We didn't recognize your email. Please verify the address or create an account."
     attributes:
       backer:
         value: Value
@@ -123,19 +123,19 @@ en:
     index:
       back_date: "Back date"
       current_credits_html: "Your current balance is <span id=\"current_credits\">%{credits}</span> in credits."
-      important_html: "You have <strong>up to 180 days after the payment date</strong> to ask for a refund. If you ask for a refund, the value of your payment will be deducted from your credits."
+      important_html: "You have <strong>up to 60 days after the payment date</strong> to ask for a refund. If you ask for a refund, the value of your payment will be deducted from your credits."
       project: Project
       refund_expration_date: "Refund deadline"
       refunded: Refunded
       refunds_title: "Payments that can be refunded"
-      request_refund: "Request refund"
+      request_refund: "Request a refund"
       requested_refund: "Requested refund"
       status: Status
       title: "My credits"
       value: Value
     refund:
       cannot_refund: "This payment cannot be refunded."
-      error: "Oops. There was an error while requesting your refund."
+      error: "We apologize, but there seems to be an error with your refund request."
       no_credits: "You don't have enough credits to request this refund."
       refunded: "This payment has already been refunded."
       requested_refund: "You already requested a refund for this payment."
@@ -152,22 +152,22 @@ en:
       reached: reached
   devise:
     confirmations:
-      confirmed: "Your account was successfully confirmed. You are now signed in."
-      send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
-      send_paranoid_instructions: "If your e-mail exists on our database, you will receive a password recovery link on your e-mail"
+      confirmed: "Your account is confirmed. You are now signed into RoundSeed."
+      send_instructions: "You will receive an email with instructions about how to confirm your account in a few moments."
+      send_paranoid_instructions: "If your e-mail exists on our database, you will receive a password recovery link by e-mail."
     failure:
       already_authenticated: "You are already signed in."
-      inactive: "Your account was not activated yet."
+      inactive: "Your account has not been activated yet."
       invalid: "Invalid email or password."
       invalid_token: "Invalid authentication token."
       locked: "Your account is locked."
-      timeout: "Your session expired, please sign in again to continue."
-      unauthenticated: "You need to sign up or sign in to continue."
-      unconfirmed: "You have to confirm your account before continuing."
+      timeout: "Your session has expired, please sign in again to continue."
+      unauthenticated: "You need to signup or sign-in to continue."
+      unconfirmed: "Please confirm your account before continuing."
     links:
       forgot_password: "Forgot your password?"
       sign_in: "Sign in"
-      sign_up: "Sign up"
+      sign_up: "Signup"
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
@@ -180,10 +180,10 @@ en:
       failure: "Could not authorize you from %{kind} because \"%{reason}\"."
       success: "Successfully authorized from %{kind} account."
     passwords:
-      send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
+      send_instructions: "You will receive an email with instructions about how to reset your password in a few moments."
       send_paranoid_instructions: "If your e-mail exists on our database, you will receive a password recovery link on your e-mail"
-      updated: "Your password was changed successfully. You are now signed in."
-      updated_not_active: "Your password was changed successfully."
+      updated: "Your password was successfully updated. You are now signed in."
+      updated_not_active: "Your password was successfully udated."
     registrations:
       destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
       inactive_signed_up: "You have signed up successfully. However, we could not sign you in because your account is %{reason}."
@@ -191,15 +191,15 @@ en:
         inactive: inactive
         locked: locked
         unconfirmed: unconfirmed
-      signed_up: "Welcome! You have signed up successfully."
-      updated: "You updated your account successfully."
+      signed_up: "Welcome! You have successfully signed up."
+      updated: "You successfully updated your account."
     sessions:
       new:
         site_title: "Sign in"
         submit: "Sign in"
         title: "Sign in using your email"
         login_title: Login
-        login_subtitle: "If already have an account"
+        login_subtitle: "If you already have an account"
         register_title: "Sign Up"
         register_subtitle: "Use your e-mail account"
         with_facebook: "Sign in with facebook"
@@ -216,12 +216,12 @@ en:
   explore:
     index:
       categories: Categories
-      expiring: "Final countdown"
-      quick_explore: "Quick search"
-      recent: Recent
-      recommended: Recommended
-      subtitle: "Find something that matters to you and make an impact!"
-      successful: Successful
+      expiring: "Final Countdown"
+      quick_explore: "Quick Search"
+      recent: "Recently Launched"
+      recommended: "Recommended"
+      subtitle: "Discover amazing projects and help those you care about to succeed!"
+      successful: "Successful"
       title: "Explore the Projects"
     title: "Explore"
     project:
@@ -280,9 +280,9 @@ en:
       account: "my account"
     user:
       logout: Logout
-      my_credits: "My credit"
+      my_credits: "My Credits"
   not_informed: "not informed"
-  notify_locale: "We identified your language by your browser. If you prefer another one, click on one of the flags on the right."
+  notify_locale: "We identified your language by your browser. If you prefer another, click the flag on the right."
   on_the_spot:
     cancel: Cancel
     ok: OK
@@ -304,24 +304,24 @@ en:
   payment_stream:
     thank_you:
       error: "Ooops. You can only access this page after backing a project."
-      header_subtitle: "Without you maybe this project wouldn't stand a chance. Welcome to the team!"
+      header_subtitle: "Welcome to the team! Without you maybe this project may not have happened."
       header_title: "Thank you! :D"
       text_subtitle: "Tell everyone what you just did"
-      text_title_html: "You are now part of the group that does everything to make %{link} happen."
-      title: "Thank you"
+      text_title_html: "You are now part of the community that is doing what it canto make %{link} a success."
+      title: "Thank you!"
   project:
     start:
       email_subject: "We've received your project"
-      email_text: "Thanks for trusting your project to RoundSeed :)<br><br>We know that you expect a quick reply but, to be quite frank, we may take up to 3 days to resnpond, ok? That is because we have a small team working on several projects. Note that the reply can come sooner, so watch your inbox.<br><br>Meanwhile it is worth to get to know the projects that are online (<a href='%{explore_link}' style='color: #E75297 !important;'>%{explore_link}</a>) and - if you like any of them- back it! This is the way to show support for what matters to you, and to feed the ecosystem that keeps growing around RoundSeed.<br><br>Besides that, you just might get some inspiration for your own project...<br><br>Stay tuned for updates in <a href='%{facebook}' style='color: #E75297 !important;'>Facebook</a> and get some deeper knowledge about RoundSeed reading the posts in our <a href='%{blog}' style='color: #E75297 !important;'>blog</a>.<br><br>If you have any doubt, send an email to: %{email}"
+      email_text: "Thanks for entrusting your project to RoundSeed :)<br><br>We know that you expect a quick reply but, to be quite frank, we may take up to 3 days to resnpond, ok? That is because we have a small team working on several projects. Note that the reply can come sooner, so watch your inbox.<br><br>Meanwhile it is worth to get to know the projects that are online (<a href='%{explore_link}' style='color: #E75297 !important;'>%{explore_link}</a>) and - if you like any of them- back it! This is the way to show support for what matters to you, and to feed the ecosystem that keeps growing around RoundSeed.<br><br>Besides that, you just might get some inspiration for your own project...<br><br>Stay tuned for updates in <a href='%{facebook}' style='color: #E75297 !important;'>Facebook</a> and get some deeper knowledge about RoundSeed reading the posts in our <a href='%{blog}' style='color: #E75297 !important;'>blog</a>.<br><br>If you have any doubt, send an email to: %{email}"
       notification_text: "Your project has been received by RoundSeed's team"
     finish:
       successful:
-        email_subject: "Hooray! The project you backed was successful on RoundSeed!"
+        email_subject: "Woo-hoo! The project you backed was successful on RoundSeed!"
         email_text: "The project %{project_link}, which you backed, was successfuly funded on RoundSeed! Time to celebrate :D<br><br>Thank you very much, from the heart, for your support! Without you this would never have been possible. Soon, %{user_link} will contact you to deliver your reward. Meanwhile, share with everybody this success!"
-        facebook_text: "Hooray! The project '%{name}', which I backed, was successful on RoundSeed!"
-        notification_text: "Hooray! The project %{link} that you backed was successful! Spread the word!"
-        reward_notification_text: "Soon, %{link} will contact you to deliver your reward. Enjoy!"
-        twitter_text: "Hooray! The project '%{name}', which I backed, was successful on @roundseed! %{short_url}"
+        facebook_text: "Woo-hoo! The project '%{name}', which I backed, was successful on RoundSeed!"
+        notification_text: "Woo-hoo! The project %{link} that you backed was successful! Rejoice! Spread the word!"
+        reward_notification_text: "Soon, %{link} will contact you to about your reward. Enjoy!"
+        twitter_text: "Woo-hoo! The project '%{name}', which I backed, was successful on @roundseed! %{short_url}"
       unsuccessful:
         email_subject: "The project you backed wasn't funded on RoundSeed."
         email_text: "The project %{project_link}, that you backed, was not funded. Maybe next time!<br><br>Because of this, you received <strong>%{value}</strong> in credits to back other projects. If you prefer, you can ask for a refund %{credits_link}."
@@ -330,13 +330,13 @@ en:
     verify_if_video_exists_on_vimeo: "must exist on Vimeo"
     vimeo_regex_validation: "only Vimeo URLs are allowed"
     display_status:
-      expired: "not funded"
-      successful: funded
-      waiting_confirmation: waiting
+      expired: "Not Funded"
+      successful: "Sucessfully Funded!"
+      waiting_confirmation: "Waiting"
   projects:
     recommended_header:
-      sugest_for_you: "suggested for you"
-      highlight_project: "featured project"
+      sugest_for_you: "Suggested projcet for you"
+      highlight_project: "Featured Project"
     box:
       by: by
     admin_fields:
@@ -344,35 +344,35 @@ en:
     back_project:
       project_warning:
         not_successful:
-          expired: "This project didn't reach the goal of %{goal} until %{date} and wasn't funded"
-          not_expired: "This project will only be funded if at least %{goal} is backed until %{date}"
+          expired: "This project didn't reach its goal of %{goal} by %{date} and wasn't funded"
+          not_expired: "This project will only be funded if at least %{goal} is backed by %{date}"
         successful:
           expired: "This project was successful and was funded on %{date}"
-          not_expired: "This project will be successful and funded on %{date}"
-        waiting_confirmation: "Waiting confirmation from payments to know if this project will be funded."
+          not_expired: "This project was successdul and will be funded on %{date}"
+        waiting_confirmation: "Waiting confirmation from payments to verify that this project will be funded."
       reached_of: "Reached of"
       submit: "Back this project"
     backer:
       anonymous_backer: "Anonymous backer"
       anonymous_description: "Opted to remain incognito"
-      no_reward: "This backer has not picked a reward"
+      no_reward: "This backer has not chosen a reward"
     backers:
       checkout:
         no_credits: "You don't have enough credits to back this project."
-        success: "Your back was successfully made. Thanks a lot!"
+        success: "Your back was successfully made. Thanks you!"
       new:
-        cannot_back: "It's not possible to back this project right now. Please, back other projects."
+        cannot_back: "It's not possible to back this project right now. Look around, perhaps there is another you might find of interest."
         header:
-          subtitle: "You are a few steps from making the difference and becoming part of this project."
+          subtitle: "You are just moments away from helping this meet its goals."
           title: "Oohh yeah!"
         no_reward: "Thanks. I just want to help the project."
-        submit: "Review and proceed to checkout"
+        submit: "Please review and proceed to checkout"
         title: "Back %{name}"
       review:
-        credits_notice_html: "This back will be payed with your credits. After the confirmation, you will have <strong>%{credits}</strong> in credits to back other projects."
+        credits_notice_html: "This back will be payed with your credits. After confirmation, you will have <strong>%{credits}</strong> in credits to back other projects."
         error: "Ooops. There was an error while registering your back. Please try again."
         international:
-          description: "You can use PayPal to make international payments"
+          description: "You can use PayPal"
           important_html: "<p>The use of PayPal is destinated mostly for international payments. That's because you'll have only 60 days to receive an eventual refund without paying any fee.</p><p>In case you can make the regular payment through MoIP, we recommend you to do it.</p><p>But if that's not possible, don't worry: you'll always be able to receive your money back. Only, in case your refund is made more than 60 days after your payment, you'll have to pay PayPal's fee, which is 5,4% + $0,60 per transaction.</p>"
           submit: "Proceed to PayPal's checkout"
           title: "Want to make an international payment?"
@@ -395,16 +395,16 @@ en:
       add_reward: "Add reward"
       important_html: "Please notice that RoundSeed will charge 4% if your project is successful, and our payment gateway (Paypal) charges a fee that varies, usually, from 3% to 3.5% per transaction. Add this values to your budget in order to execute your project with no surprises."
       project_warning:
-        content_html: "Want to have your project go live? Don't forget to read %{link}."
+        content_html: "Want your project go live? Don't forget to read %{link}."
         help_link: "our guide"
-      rewards_description: "We believe that the best way to inspire people to back a project is offering excelent – and creative! – rewards. Everybody loves limited editions, unique things and joyfull experiences (parties, candies, balloon traveling!). Spend some time devising creative rewards and people will be interested."
+      rewards_description: "We believe the best way to inspire people to back a project is by offering creative rewards. Everybody loves limited editions, unique treats and cool experiences. Spend some time thinking of creative rewards to piqure your audience's interest."
       rewards_title: Rewards
       submit: "Submit project"
     index_header:
-      subtitle_html: "Fund the fun together!<br/>Promote what you care about most, and find friends too! You're the missing part in this story."
-      title: "Update dammit!"
+      subtitle_html: "Your project has an amazing story just waiting to be heard. Tell the story, engage your audience and empower them to help bring your project to life!"
+      title: "Engage. Empower!"
     new:
-      subtitle: "The time to make it happen is now! We really want to know what you're up to..."
+      subtitle: "The time to make it happen is now! Share with us what you're working on."
       title: "Submit your project"
     pending:
       can_finish: "Can finish?"
@@ -451,17 +451,17 @@ en:
       without_city: "A project in %{category_name}, by %{author}"
       with_city: "A project in %{category_name}, in %{city}, by %{author}"
     project_updates:
-      empty: "This project didn't have updates yet. But wait and see =D"
+      empty: "This project doesn't any updates yet."
       submit: "Send update"
       comment: "Update text"
-      title: "Title of the update"
+      title: "Update Title"
       destroy: "Remove update"
       destroy_confirmation: "Do you want to remove the update?"
     rewards:
       reward_title: "For %{minimum} or more"
       title: "Back and receive..."
     send_mail:
-      success: "Your project was successfully sent! We'll soon contact you. Thanks a lot!"
+      success: "Your project was successfully sent! We'll be in contact soon. Thanks a lot!"
     show:
       rejected: "This project was not selected to participate on RoundSeed. Maybe next time! :)"
       waiting: "This project is just waiting to be reviewed before going live on RoundSeed ;)"
@@ -477,29 +477,29 @@ en:
         link: Link
         link_title: "Share the link"
         take_a_look: "Check out the project"
-        title: "Be part of it and share this project"
+        title: "Become a part of this project and share, and share alike."
     start:
-      about: "Describe your project and how much do you need"
-      category: "Project category"
-      how_much_you_need: "How much do you want to raise?"
-      about_hint: "Tell us a little about what you want to do, how much you need and what for. Be brief and punctual, but don't forget to give the readers something that moves them. After all, it's your creation and they need to see your passion taking place!"
-      contact: "Leave us your email address so we can contact you"
+      about: "Describe your project and your fundraising goals."
+      category: "Project Category"
+      how_much_you_need: "What is your fundraising goal?"
+      about_hint: "Tell us a little about your project, what it is, how much you're wanting to raise and what the funds will be used for. Be brief and punctual, but don't forget to give to tell your unique story that moves your audience. Your project is your creation, and they will want to experience your passion!"
+      contact: "Leave us your email address so we can contact you."
       links: "Where can we find more about you and your project?"
-      links_hint: "Leave us as many links as you have, so we can get to know your work and your project better. Doesn't have to be something formal or fancy, just a few useful links."
-      video: "Your project already have a video?"
+      links_hint: "Leave us as many links as you have. They help us get to know your work and your project better. They don't have to be something formal or fancy, just a few useful links."
+      video: "Does your project already have a video?"
       video_hint: "A vimeo link"
-      twitter: "Have a Twitter account?"
-      facebook: "Have a Facebook account?"
+      twitter: "Are you on Twitter?"
+      facebook: "Are you on Facebook?"
       blog: "How about a project blog or website?"
-      know_us_via: "How'd you hear about RoundSeed?"
+      know_us_via: "How did you hear about RoundSeed?"
       how_works: "How to mobilize backers to raise $ needed for enforcement?"
       project_warning:
-        content_html: "Want to have your project selected? Don't forget to read %{link}."
+        content_html: "Do you want to have your project selected? Don't forget to read %{link}."
         help_link: "our guide"
-      rewards: "What rewards do you want to offer?"
-      rewards_hint: "We believe that the best way to inspire people to back a project is offering excelent – and creative! – rewards. Everybody loves limited editions, unique things and joyfull experiences (parties, candies, balloon traveling!). Spend some time devising creative rewards and people will be interested."
+      rewards: "What rewards will you be offering?"
+      rewards_hint: "We believe the best way to incentivize people to back a project is by offering excellent – and creative! – rewards. Everybody loves limited editions, unique things and joyfull experiences (parties, candies, balloon traveling!). Spend some time devising creative rewards and people will be interested."
       submit: "Submit the project"
-      subtitle: "The time to make it happen is now! We really want to know what you're up to..."
+      subtitle: "The time to make it happen is now! Tell us about your project."
       title: "Submit your project"
     twitter:
       take_a_look: "Check out the project %{name} on @RoundSeed"
@@ -548,13 +548,13 @@ en:
     twitter: roundseed
   static:
     faq:
-      subtitle: "Quickly find answers to the most common questions."
+      subtitle: "Quickly find answers to the most frequent questions."
       title: "Frequently Asked Questions"
     guidelines:
-      accept: "I have read and understood how RoundSeed works."
+      accept: "I have read about and understand how RoundSeed works."
       submit: "I want to submit my project."
-      subtitle: "Before submitting your project, learn a little about how RoundSeed works."
-      title: "How does RoundSeed work?"
+      subtitle: "A creative way to fund innovative projects."
+      title: "How RoundSeed works"
     privacy:
       title: "Privacy Policy"
     terms:
@@ -562,8 +562,8 @@ en:
   terms: "terms of use"
   user:
     backs_text:
-      many: "Backed this and other %{total} projects"
-      one: "Backed only this project until now"
+      many: "Backed this and another %{total} projects"
+      one: "Backed only this project, so far"
       two: "Backed this and 1 other project"
     no_name: Unnamed
   users:
@@ -581,14 +581,14 @@ en:
         twitter: "Profile on twiiter"
     backs:
       anonymous: "Anonymous back."
-      no_backs: "%{name} hasn't backed any project yet. But we know it's just a matter of time! ;-)"
+      no_backs: "%{name} hasn't backed a project yet. But we know it's just a matter of time! ;-)"
       no_backs_current_user_html: "You haven't backed a project yet. What about <a href=\"/\">starting now</a>?"
-      no_reward: "You didn't pick a reward"
+      no_reward: "You haven't chosen a reward"
       title: "Projects %{name} has backed"
-      title_current_user: "Projects I've backed"
+      title_current_user: "Projects that I've backed"
       your_reward: "Your reward"
     current_user_fields:
-      updated: "Your information has been updated"
+      updated: "Your information has been successfully updated"
       update_social_info: "Update info"
       social_info: "Contact info"
       twitter: "twitter ( username )"
@@ -606,11 +606,11 @@ en:
       newsletter: "I want to receive the RoundSeed newsletter via email"
       password_hint: "<i>Leave blank if you don't want to change it.</i>"
     header:
-      bio_tooltip: "Click here to write about you..."
+      bio_tooltip: "Click here to say a little something about yourself..."
       name_tooltip: "Click here to fill your name..."
     projects:
-      no_projects: "%{name} hasn't started any project on RoundSeed yet. Surely the inspiration will hit one sometime soon!"
-      no_projects_current_user_html: "You haven't submitted any project to RoundSeed yet. Let the inspiration flow and %{link} to start!"
+      no_projects: "%{name} hasn't started a project on RoundSeed yet. Surely the inspiration will hit one sometime soon!"
+      no_projects_current_user_html: "You haven't submitted a project to RoundSeed yet. Let the inspiration flow and go to %{link} to get started!"
       title: "%{name}'s projects"
       title_current_user: "My projects"
   users_mailer:
@@ -619,7 +619,7 @@ en:
       forward: "Foward to your friends"
       hello: Hi
       intro: "You are receiving this message because you signed up on RoundSeed"
-      mailee: "Message delivered by Mailee.me"
+      mailee: "Message delivered by sendgrid"
       salutation: "Big squeeze,"
       signature: "The RoundSeed Team"
       unsubscribe: Unsubscribe
