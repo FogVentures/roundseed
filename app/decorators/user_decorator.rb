@@ -2,12 +2,20 @@ class UserDecorator < Draper::Base
   decorates :user
   include Draper::LazyHelpers
 
+  def display_provider
+    case provider
+    when 'devise' then "Login #{email}"
+    when 'google' then I18n.t('user.google_account')
+    else provider
+    end
+  end
+
   def display_name
     name || nickname || I18n.t('user.no_name')
   end
 
   def display_image
-    uploaded_image.url || image_url || gravatar_url || '/assets/user.png'
+    uploaded_image.thumb_avatar.url || image_url || gravatar_url || '/assets/user.png'
   end
 
   def short_name

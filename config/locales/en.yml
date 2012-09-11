@@ -83,6 +83,7 @@ en:
         name: Name
         user_id: "User Id"
         video_url: "Video URL"
+        permalink: 'type you project URL ( http://catarse.me/myprojectname )'
       reward:
         description: Description
         maximum_backers: "Maximum backers"
@@ -117,6 +118,7 @@ en:
   backer_singular: backer
   click_here: "Click here"
   clicking_here: "clicking here"
+  click_term: 'terms'
   comment:
     display_time: "%{time_ago} ago"
   credits:
@@ -316,15 +318,15 @@ en:
       notification_text: "Your project has been received by RoundSeed's team"
     finish:
       successful:
-        email_subject: "Woo-hoo! The project you backed was successful on RoundSeed!"
-        email_text: "The project %{project_link}, which you backed, was successfuly funded on RoundSeed! Time to celebrate :D<br><br>Thank you very much, from the heart, for your support! Without you this would never have been possible. Soon, %{user_link} will contact you to deliver your reward. Meanwhile, share with everybody this success!"
+        email_subject: "Woo-hoo! The project you backed, %{project_name}, was successful on RoundSeed!"
+        email_text: "The project %{project_link}, which you backed, was successfuly funded on RoundSeed! Time to celebrate :D<br><br>The project has, including you, %{project_total_backers} wonderful backers, raised %{project_pleged} and reached %{project_process}% of its goal =D<br><br>Something that is important to know: RoundSeed takes 3 days to send to the project creator the list with all backer information. So, expect that the project creator take at least 3 days to get in touch with you, to thank you and inform your about the delivery of your reward, ok?<br><br>So why don't you, in this meantine, share with all your friends this project's sucess?<br><br><div style='text-align:center;'>%{facebook_button}%{twitter_button}</div><br><br>If you want to get in touch with %{project_owner_name}, send an email to %{project_owner_email}.<br><br>If you have any questions about RoundSeed, acess our FAQ: <a href='http://www.roundseed.com/faq' style='color: #008800';>www.roundseed.com/faq</a> or send an email to <a href='mail_to:contact@roundseed.com' style='color: #008800;'>contact@roundseed.com</a><br>"
         facebook_text: "Woo-hoo! The project '%{name}', which I backed, was successful on RoundSeed!"
         notification_text: "Woo-hoo! The project %{link} that you backed was successful! Rejoice! Spread the word!"
         reward_notification_text: "Soon, %{link} will contact you to about your reward. Enjoy!"
         twitter_text: "Woo-hoo! The project '%{name}', which I backed, was successful on @roundseed! %{short_url}"
       unsuccessful:
-        email_subject: "The project you backed wasn't funded on RoundSeed."
-        email_text: "The project %{project_link}, that you backed, was not funded. Maybe next time!<br><br>Because of this, you received <strong>%{value}</strong> in credits to back other projects. If you prefer, you can ask for a refund %{credits_link}."
+        email_subject: "The project %{project_name} didn't successfully fund on RoundSeed."
+        email_text: 'The project %{project_link} that you backed unfortunately did not reach its goal, and was not funded. Maybe next time!<br><br>Because of this, you received <strong>%{value}</strong> in credits to back other projects. You can find other %{project_category} projects in %{explore_category_link}.<br><br>You also can ask for your refund by clicking on %{credits_link}. Remember that you signed up in RoundSeed using %{user_provider}. If you have any difficulty logging in, do not be shy about emailing us at contact@roundseed.com with the subject "Refund - login issue".<br><br>If, for any reason, you want to contact %{project_owner_name}, send an email to %{project_owner_email}.<br><br>If you have any other questions, access our FAQ or send an email to <a href="mail_to:contact@roundseed.com" style="color: #008800;">contact@roundseed.com</a>.<br>'
         notification_text: "You received %{value} in credits to back other projects. If you prefer, you can request a refund %{link}."
         unsuccessful_text: "The project %{link} that you backed wasn't funded. Maybe next time!"
     verify_if_video_exists_on_vimeo: "must exist on Vimeo"
@@ -566,6 +568,7 @@ en:
       one: "Backed only this project, so far"
       two: "Backed this and 1 other project"
     no_name: Unnamed
+    google_account: "Google Account"
   users:
     show:
       attention: Attention
