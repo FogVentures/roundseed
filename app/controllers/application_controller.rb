@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     @total_projects = statistics.total_projects
     @total_projects_success = statistics.total_projects_success
     @total_projects_online = statistics.total_projects_online
-    @fb_admins = [152699881511667]
+    @fb_admins = [roundseed]
   end
 
   before_filter do
