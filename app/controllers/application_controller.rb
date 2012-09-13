@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     @total_projects = statistics.total_projects
     @total_projects_success = statistics.total_projects_success
     @total_projects_online = statistics.total_projects_online
-    @fb_admins = [630973476]
+    @fb_admins = [567237711]
   end
 
   before_filter do
