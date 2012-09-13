@@ -14,7 +14,7 @@ module Catarse
     config.autoload_paths += %W(#{config.root}/lib #{config.root}/lib/** #{config.root}/app/presenters #{config.root}/app/presenters/** #{config.root}/app/business/ #{config.root}/app/business/**)
     config.encoding = "utf-8"
     config.filter_parameters += [:password, :password_confirmation]
-    config.time_zone = 'Brasilia'
+    config.time_zone = 'Pacific Time (US & Canada)'
     config.generators do |g|
       g.template_engine :haml
       g.test_framework :rspec, :fixture => false, :views => false
