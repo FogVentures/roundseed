@@ -314,7 +314,7 @@ en:
   project:
     start:
       email_subject: "We've received your project"
-      email_text: "Thanks for entrusting your project to RoundSeed :)<br><br>We know that you expect a quick reply but, to be quite frank, we may take up to 3 days to resnpond, ok? That is because we have a small team working on several projects. Note that the reply can come sooner, so watch your inbox.<br><br>Meanwhile it is worth to get to know the projects that are online (<a href='%{explore_link}' style='color: #E75297 !important;'>%{explore_link}</a>) and - if you like any of them- back it! This is the way to show support for what matters to you, and to feed the ecosystem that keeps growing around RoundSeed.<br><br>Besides that, you just might get some inspiration for your own project...<br><br>Stay tuned for updates in <a href='%{facebook}' style='color: #E75297 !important;'>Facebook</a> and get some deeper knowledge about RoundSeed reading the posts in our <a href='%{blog}' style='color: #E75297 !important;'>blog</a>.<br><br>If you have any doubt, send an email to: %{email}"
+      email_text: "We just wanted to let you know that we received your project.<br><br>We know that you're looking for a quick reply, but it may take us as many as three days to get back to you. That's because we're a small team working on multiple projects. We might get back to you sooner, but just wanted to you to be aware that it could take longer than you might have expected.<br><br>In the meantime, you might want to check out some of the current live projects (<a href='%{explore_link}' style='color: #E75297 !important;'>%{explore_link}</a>) and in particular, any that might help inspire your own project's campaign. Who knows, you might even want to become a part of one, supporting what matters to you, and feeding the ecosystem that keeps growing around RoundSeed.<br><br>Stay tuned for updates on <a href='%{facebook}' style='color: #E75297 !important;'>Facebook</a> and get some deeper knowledge about RoundSeed reading the posts in our <a href='%{blog}' style='color: #E75297 !important;'>blog</a>.<br><br>If you have any questions, send us an email at: %{email}"
       notification_text: "Your project has been received by RoundSeed's team"
     finish:
       successful:
@@ -541,7 +541,7 @@ en:
     email:
       contact: contact@roundseed.com
       payments: payments@roundseed.com
-      projects: projects@roundseed.com
+      projects: matjohson@gmail.com
       system: system@roundseed.com
       privacy: privacy@roundseed.com
     facebook: "http://www.facebook.com/roundseed"
