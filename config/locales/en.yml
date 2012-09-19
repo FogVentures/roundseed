@@ -536,7 +536,7 @@ en:
       error: "There was an error while logging in. Try again."
   site:
     host: roundseed.herokuapp.com
-    base_url: "http://roundseed.com"
+    base_url: "http://roundseed.herokuapp.com"
     blog: "http://blog.catarse.me/"
     email:
       contact: contact@roundseed.com
