@@ -94,7 +94,7 @@
         .social
           padding-top: 10px
           #facebook_share, #facebook_share iframe
-            width: 271px !important
+            width: auto!important
             float: left
           #twitter_share
             width: 89px !important
@@ -139,7 +139,6 @@
           float: left
           padding-top: 30px
           margin-top: 10px
-          border-top: 1px dotted #ccc
 
           h5
             font-family: "Lato-Bold"
@@ -293,12 +292,15 @@
           +transition(all, 0.3s)
           &.clickable:hover
             background: rgba($light_green, 0.3)
-          span.avaliable
-            background: url($images_path+'reward_icon.png') left top no-repeat
+          span
             width: 33px
             height: 40px
             margin-left: -46px
             float: left
+            &.avaliable
+              background: url($images_path+'reward_icon.png') left top no-repeat  
+            &.sold_out        
+              background: url($images_path+'icon_soldout.png') left top no-repeat   
           h2
             font-family: "Lato-Bold"
             font-size: 18px
@@ -317,11 +319,11 @@
             display: block
             text-shadow: 1px 1px white
           p, .on_the_spot_editing
-            color: #333333
+            color: #444
             font-family: Arial
-            font-size: 14px
-            line-height: 130%
-            padding-bottom: 10px
+            font-size: 12px
+            line-height: 18px
+            padding-bottom: 5px
             a
               color: #64CB64
               text-decoration: none
@@ -337,13 +339,15 @@
             font-size: 11px
             text-indent: 30px            
             text-transform: uppercase
-            .limited
+            .limited, .sold_out
               font-size: 13px
               margin-top: 12px
               float: left
               width: 100%
               margin-bottom: 3px
               text-shadow: 1px 1px white
+            .sold_out
+              color: #e6303c
             .remaining
               font-size: 11px
               text-shadow: 1px 1px white
