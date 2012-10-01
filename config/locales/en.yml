@@ -537,7 +537,7 @@ en:
   site:
     host: roundseed.herokuapp.com
     base_url: "http://roundseed.herokuapp.com"
-    blog: "http://blog.catarse.me/"
+    blog: "http://blog.roundseed.com/"
     email:
       contact: contact@roundseed.com
       payments: payments@roundseed.com
