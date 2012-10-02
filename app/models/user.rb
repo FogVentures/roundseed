@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
     Rails.logger.info "-----> #{e.inspect}"
   end
 
-  delegate  :display_name, :display_image, :short_name, :display_provider,
+  delegate  :display_name, :display_image, :short_name, :display_provider, :display_image_html,
             :medium_name, :display_credits, :display_total_of_backs,
             :to => :decorator
 
@@ -104,7 +104,7 @@ class User < ActiveRecord::Base
 
   }
   scope :by_email, ->(email){ where('email ~* ?', email) }
-  scope :by_payer_email, ->(email){  where('EXISTS(SELECT true FROM backers JOIN payment_details ON backers.id = payment_details.backer_id WHERE backers.user_id = users.id AND payment_details.payer_email ~* ?)', email) }
+  scope :by_payer_email, ->(email){  where('EXISTS(SELECT true FROM backers JOIN payment_notifications ON backers.id = payment_notifications.backer_id WHERE backers.user_id = users.id AND payment_notifications.extra_data ~* ?)', email) }
   scope :by_name, ->(name){ where('name ~* ?', name) }
   scope :by_id, ->(id){ where('id = ?', id) }
   scope :by_key, ->(key){ where('EXISTS(SELECT true FROM backers WHERE backers.user_id = users.id AND backers.key ~* ?)', key) }
@@ -131,6 +131,10 @@ class User < ActiveRecord::Base
 
   def decorator
     UserDecorator.new(self)
+  end
+
+  def have_address?
+    address_street.present? and address_number.present? and address_city.present?
   end
 
   def admin?

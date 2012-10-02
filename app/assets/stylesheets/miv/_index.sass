@@ -46,6 +46,8 @@ input.error,textarea.error
 .on_the_spot_form
   &:after
     content: "" !important
+span.on_the_spot_editing
+  height: auto !important
 .on_the_spot_editing
   &:after
     content: " " image-url("pencil_16.png")
@@ -97,4 +99,6 @@ input.error,textarea.error
       @include background-image(linear-gradient(#bbb,#888))
       +box-shadow(rgba(0,0,0,0.75),2px,2px,6px)
 
+.avatar_wrapper
+  overflow: hidden
 
