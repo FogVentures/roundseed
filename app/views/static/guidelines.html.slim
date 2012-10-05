@@ -6,11 +6,8 @@
         h1= t('.title')
         h2= t('.subtitle')
       .default_text
-        h2 Motivate, Connect & Engage
         p
-        | RoundSeed is a funding platform for innovative projects, promoted by fresh ventures and the creative people behind them. 
-        p
-        | The guidelines below explain RoundSeed's focus in an effort to help you better organize your project for launch.
+        h2 Learn a little bit how RoundSeed works
       .default_text
         .row
           .span12.columns
@@ -18,18 +15,19 @@
             .accordion-group
               .accordion-heading
                 a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapseOne"
-                  | Projects, campaigns, ideas...AUDACIOUS goals.
+                  | Share your project
               #collapseOne.accordion-body.collapse
                 .accordion-inner
-                  | We're open to just about any project, though we do require that your project, is A PROJECT, with a clear conclusion and outcome. 
-                  | Why? Because a clear outcome focuses the project's creators and its backers on a common goal 
-                  | resulting from a clearly defined objective, the undertaking of specific tasks, and a deadline.
+                  | Submit your proposed project to us, #{link_to 'here', "projects/start", :target => :_blank}.  The form is dead simple, 
+                  | and will help you get a feel for the minimum requirements to launch your RoundSeed project.
 				  p
-				  | 
+				  | We're open to just about any project, though we do require that your project, is A PROJECT, with a clear conclusion and outcome. 
+                  | Why? Because a clear outcome focuses the project's creators and its backers on a common goal 
+                  | resulting from a clearly defined objective, the undertaking of specific tasks, and a deadline. 
             .accordion-group
               .accordion-heading
                 a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapse2"
-                  | Consumer rule & potent patron power
+                  | Build your profile
               #collapse2.accordion-body.collapse
                 .accordion-inner
                   | Something we take to heart at RoundSeed is that 'consumers are the most important part of the production process.' 
@@ -46,7 +44,7 @@
             .accordion-group
               .accordion-heading
                 a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapse3"
-                  | Original, innovative & fresh
+                  | Pre-launch feedback
               #collapse3.accordion-body.collapse
                 .accordion-inner
                   | You don't need to be a large, successful organization to tap into the power of crowdfunding. Nearly any venture from an art exhibition, 
@@ -110,7 +108,7 @@
             .accordion-group
               .accordion-heading
                 a.accordion-toggle data-parent="#accordion2" data-toggle="collapse" href="#collapse4"
-                  | Video woo-hoo!
+                  | Launch!
               #collapse4.accordion-body.collapse
                 .accordion-inner
                   | We think the best way for you to tell your story, is through you telling your story 'in person' through a short video. 

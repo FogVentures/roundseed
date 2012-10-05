@@ -83,7 +83,7 @@ en:
         name: Name
         user_id: "User Id"
         video_url: "Video URL"
-        permalink: 'type you project URL ( http://catarse.me/myprojectname )'
+        permalink: 'type you project URL ( http://roundseed.com/myprojectname )'
       reward:
         description: Description
         maximum_backers: "Maximum backers"
@@ -556,7 +556,7 @@ en:
     guidelines:
       accept: "I have read about and understand how RoundSeed works."
       submit: "I want to submit my project."
-      subtitle: "A creative way to fund innovative projects."
+      subtitle: "roundseed. |round-sēd| verb -to cause (something) to grow by increased familiarity and investment."
       title: "How RoundSeed works"
     privacy:
       title: "Privacy Policy"

@@ -1,47 +1,8 @@
-CATARSE.BackersReviewView = Backbone.View.extend({
-  initialize: function() {
-    var zip_code_valid = null
-    var _this = this;
-    everything_ok = function(){
-      var all_ok = true
-      if($('#backer_credits').val() == "false"){
-        if(!ok('#user_full_name'))
-          all_ok = false
-        //if(!cpf_ok())
-          //all_ok = false
-        if(!email_ok())
-          all_ok = false
-        //if(!zip_code_ok())
-          //all_ok = false
-        if(!ok('#user_address_street'))
-          all_ok = false
-        if(!ok('#user_address_number'))
-          all_ok = false
-        if(!ok('#user_address_neighbourhood'))
-          all_ok = false
-        if(!ok('#user_address_city'))
-          all_ok = false
-        //if(!ok('#user_address_state'))
-          //all_ok = false
-        //if(!phone_number_ok())
-          //all_ok = false
-      }
-      if(!accepted_terms())
-        all_ok = false
-      if(all_ok){
-        _this.updateCurrentBackerInfo();
-        $('#user_submit').attr('disabled', false)
-        if($('#back_with_credits').length < 1) {
-          $('#payment.hide').show();
-        }
-      } else {
-        $('#payment.hide').hide();
-        if($('#back_with_credits').length < 1) {
-          $('#user_submit').attr('disabled', true)
-        }
-      }
-    }
-    ok = function(id){
+CATARSE.ReviewForm = Backbone.View.extend({
+  el: '#review_form',
+
+  everything_ok: function(){
+    var ok = function(id){
       var value = $(id).val()
       if(value && value.length > 0){
         $(id).addClass("ok").removeClass("error")
@@ -50,8 +11,9 @@ CATARSE.BackersReviewView = Backbone.View.extend({
         $(id).addClass("error").removeClass("ok")
         return false
       }
-    }
-    cpf_ok = function(){
+    };
+
+    var cpf_ok = function(){
       if($('#user_cpf').isValidCPF()){
         $('#user_cpf').addClass("ok").removeClass("error")
         return true
@@ -59,8 +21,9 @@ CATARSE.BackersReviewView = Backbone.View.extend({
         $('#user_cpf').addClass("error").removeClass("ok")
         return false
       }
-    }
-    email_ok = function(){
+    };
+
+    var email_ok = function(){
       var value = $('#user_email').val()
       var re = /^[a-z0-9\._-]+@([a-z0-9][a-z0-9-_]*[a-z0-9-_]\.)+([a-z-_]+\.)?([a-z-_]+)$/
       if(value.match(re)){
@@ -70,8 +33,9 @@ CATARSE.BackersReviewView = Backbone.View.extend({
         $('#user_email').addClass("error").removeClass("ok")
         return false
       }
-    }
-    phone_number_ok = function(){
+    };
+
+    var phone_number_ok = function(){
       var value = $('#user_phone_number').val()
       var re = /^\([0-9]{2}\)[0-9]{4}-[0-9]{4}$/
       if(value.match(re)){
@@ -81,11 +45,13 @@ CATARSE.BackersReviewView = Backbone.View.extend({
         $('#user_phone_number').addClass("error").removeClass("ok")
         return false
       }
-    }
-    accepted_terms = function(){
+    };
+
+    var accepted_terms = function(){
       return $('#accept').is(':checked')
-    }
-    zip_code_ok = function(){
+    };
+
+    var zip_code_ok = function(){
       if(zip_code_valid){
         $('#user_address_zip_code').addClass("ok").removeClass("error")
         return true
@@ -98,8 +64,9 @@ CATARSE.BackersReviewView = Backbone.View.extend({
           $('#user_address_zip_code').addClass("error").removeClass("ok")
         return false
       }
-    }
-    verify_zip_code = function(){
+    };
+
+    var verify_zip_code = function(){
       zip_code_valid = false
       if(/^[0-9]{5}-[0-9]{3}$/i.test($('#user_address_zip_code').val())) {
         $('#user_address_zip_code').removeClass("ok").removeClass("error").addClass('loading')
@@ -126,57 +93,78 @@ CATARSE.BackersReviewView = Backbone.View.extend({
         })
       }
       everything_ok()
+    };
+
+    var all_ok = true
+    if($('#backer_credits').val() == "false"){
+      if(!ok('#user_full_name'))
+        all_ok = false
+      if(!email_ok())
+        all_ok = false
+      if(!ok('#user_address_street'))
+        all_ok = false
+      if(!ok('#user_address_number'))
+        all_ok = false
+      if(!ok('#user_address_neighbourhood'))
+        all_ok = false
+      if(!ok('#user_address_city'))
+        all_ok = false
     }
+
+    if(!accepted_terms()){
+      all_ok = false;
+    }
+
+    if(all_ok){
+      this.updateCurrentBackerInfo();
+      $('#user_submit').attr('disabled', false)
+      if($('#back_with_credits').length < 1) {
+        $('#payment.hide').show();
+      }
+    } else {
+      $('#payment.hide').hide();
+      if($('#back_with_credits').length < 1) {
+        $('#user_submit').attr('disabled', true)
+      }
+    }
+  },
+
+  events:{
+    'keyup input[type=text]' : 'everything_ok',
+    'click #accept' : 'everything_ok',
+    'change select' : 'everything_ok',
+    'keyup #user_address_zip_code' : 'onZipCodeKeyUp',
+  },
+
+  onPaymentTabClick: function(e){
+    $('.payments_type').hide();
+    $('.tab_container #payment_menu a').removeClass('selected');
+    e.preventDefault();
+    var reference = $(e.currentTarget).attr('href');
+    var remote_url = $(e.currentTarget).data('target');
+    $(e.currentTarget).addClass('selected');
+    $(reference).fadeIn(300);
+    if($('div', reference).length <= 0) {
+      $.get(remote_url, function(response){
+        $(reference).empty().html(response);
+      });
+    }
+  },
+
+  onZipCodeKeyUp: function(){
+    zip_code_valid = false; 
+    this.everything_ok() 
+  },
+
+  initialize: function() {
+    var zip_code_valid = null
+    var _this = this;
+
     $('#user_cpf').mask("999.999.999-99")
     $('#user_address_zip_code').mask("99999-999")
     $('#user_phone_number').mask("(99)9999-9999")
 
-    $('input[type=text]').keyup(everything_ok)
-    $('#user_address_zip_code').keyup(function(){ zip_code_valid = false; everything_ok() })
-    $('#accept').click(everything_ok)
-    $('select').change(everything_ok)
-
-    $('#international_link').click(function(e){
-      e.preventDefault()
-      $('#international_link').parent().hide()
-      $('#international_expanded').slideDown()
-    })
-    $('#accept_international').click(function(){
-      $('#international_submit').attr('disabled', !$('#accept_international').is(':checked'))
-    })
-
     var can_submit_to_moip = true;
-
-    $('a.payment_link').click(function(event){
-      event.preventDefault();
-      $('input#payment_method_url').val($(this).data('payment_method_url'));
-      if($(this).parent().hasClass('boleto') && can_submit_to_moip) {
-        $('form#review_form')[0].submit();
-        can_submit_to_moip = false;
-      } else if(!$(this).parent().hasClass('boleto')) {
-        $('form#review_form')[0].submit();
-      }
-    });
-
-    $('.payments_type').hide();
-    $('.tab_container #payment_menu a').removeClass('selected');
-
-    $('.tab_container #payment_menu a').click(function(e){
-      $('.payments_type').hide();
-      $('.tab_container #payment_menu a').removeClass('selected');
-      e.preventDefault();
-      var reference = $(e.currentTarget).attr('href');
-      var remote_url = $(e.currentTarget).data('target');
-      $(this).addClass('selected');
-      $(reference).fadeIn(300);
-      if($('div', reference).length <= 0) {
-        $.get(remote_url, function(response){
-          $(reference).empty().html(response);
-        });
-      }
-    });
-
-
   },
 
   updateCurrentBackerInfo: function() {
@@ -197,5 +185,33 @@ CATARSE.BackersReviewView = Backbone.View.extend({
     $.post('/projects/'+project_id+'/backers/'+backer_id+'/update_info', {
       backer: backer_data
     });
+  }
+});
+
+CATARSE.BackersReviewView = Backbone.View.extend({
+  events:{
+    'click .tab_container #payment_menu a' : 'onPaymentTabClick'
+  },
+
+  onPaymentTabClick: function(e){
+    $('.payments_type').hide();
+    $('.tab_container #payment_menu a').removeClass('selected');
+    e.preventDefault();
+    var reference = $(e.currentTarget).attr('href');
+    var remote_url = $(e.currentTarget).data('target');
+    $(e.currentTarget).addClass('selected');
+    $(reference).fadeIn(300);
+    if($('div', reference).length <= 0) {
+      $.get(remote_url, function(response){
+        $(reference).empty().html(response);
+      });
+    }
+  },
+
+  initialize: function() {
+    $('.payments_type').hide();
+    $('.tab_container #payment_menu a').removeClass('selected');
+    this.$('.tab_container #payment_menu a:first').trigger('click')
+    this.reviewForm = new CATARSE.ReviewForm();
   }
 })
