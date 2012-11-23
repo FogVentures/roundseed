@@ -10,20 +10,35 @@ class Update < ActiveRecord::Base
       '<' => '&lt;',
       '"' => '"' }
     image
-    youtube width: 640, height: 430, wmode: "opaque"
-    vimeo width: 640, height: 430
+    youtube width: 560, height: 340, wmode: "opaque"
+    vimeo width: 560, height: 340
     redcloth :target => :_blank
     link :target => :_blank
   end
 
+  def email_comment_html
+    auto_html(comment) do
+      html_escape :map => {
+        '&' => '&amp;',
+        '>' => '&gt;',
+        '<' => '&lt;',
+        '"' => '"' 
+      }
+      image
+      redcloth :target => :_blank
+      link :target => :_blank
+    end
+  end
+
   def notify_backers
-    project.backers.confirmed.each do |backer|
-      Notification.create_notification :updates, backer.user,
-        :project_name => backer.project.name,
-        :project_owner => backer.project.user.display_name,
+    project.subscribed_users.each do |user|
+      Rails.logger.info "[User #{user.id}] - Creating notification for #{user.name}"
+      Notification.create_notification :updates, user,
+        :project_name => project.name,
+        :project_owner => project.user.display_name,
         :update_title => title,
         :update => self,
-        :update_comment =>  (auto_html(comment) { link; redcloth; } )
+        :update_comment => email_comment_html
     end
   end
 

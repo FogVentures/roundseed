@@ -7,6 +7,8 @@ describe BackerObserver do
   subject{ backer }
 
   before do
+    Notification.unstub(:create_notification)
+    Notification.unstub(:create_notification_once)
     confirm_backer # It should create the NotificationType before creating the Backer
     project_success
   end
@@ -30,7 +32,7 @@ describe BackerObserver do
     end
 
     context "when project becomes successful" do
-      let(:project){ Factory(:project, :can_finish => true, :visible => true, :successful => false, :goal => 20, :finished => false) }
+      let(:project){ Factory(:project, :can_finish => true, :successful => false, :goal => 20, :finished => false) }
       let(:backer){ Factory(:backer, :key => 'should be updated', :payment_method => 'should be updated', :confirmed => true, :confirmed_at => Time.now, :value => 20) }
       before do
         project_total = mock()
@@ -58,6 +60,7 @@ describe BackerObserver do
       before do
         Notification.expects(:create_notification).with(:confirm_backer, backer.user, :backer => backer,  :project_name => backer.project.name)
       end
+      it("should send confirm_backer notification"){ subject }
       its(:confirmed_at) { should_not be_nil }
     end
 

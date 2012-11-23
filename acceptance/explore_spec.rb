@@ -46,20 +46,18 @@ feature "Explore projects Feature" do
     search = Project.visible.where("name ILIKE '%eird%'").order('created_at DESC').all
 
     visit homepage
-    verify_translations
 
-    click_on "explore"
-    verify_translations
+    click_on I18n.t('layouts.header.explore')
 
     within 'head title' do
-      page.should have_content("Explore os projetos · #{I18n.t('site.name')}") 
+      page.should have_content("#{I18n.t('explore.title')} · #{I18n.t('site.name')}")
     end
 
     quick_list = find("#explore_quick").all("li")
-    quick_list[0].text.should == "Recomendados"
-    quick_list[1].text.should == "Na reta final"
-    quick_list[2].text.should == "Recentes"
-    quick_list[3].text.should == "Bem-sucedidos"
+    quick_list[0].text.should == I18n.t('explore.index.recommended')
+    quick_list[1].text.should == I18n.t('explore.index.expiring')
+    quick_list[2].text.should == I18n.t('explore.index.recent')
+    quick_list[3].text.should == I18n.t('explore.index.successful')
 
     categories_list = find("#explore_categories").all("li")
     categories_list.each_index do |index|
@@ -73,11 +71,11 @@ feature "Explore projects Feature" do
         list[index].find("a")[:href].should match(/\/projects\/#{recommended[index].to_param}/)
       end
     end
-    find('.sidebar .content .selected').text.should == "Recomendados"
+    find('.sidebar .content .selected').text.should == I18n.t('explore.index.recommended')
 
     # Now I go to expiring projects
     within ".sidebar .content" do
-      click_on "Na reta final"
+      click_on I18n.t('explore.index.expiring')
     end
     verify_translations
     within "#explore_results" do
@@ -86,11 +84,11 @@ feature "Explore projects Feature" do
         list[index].find("a")[:href].should match(/\/projects\/#{expiring[index].to_param}/)
       end
     end
-    find('.sidebar .content .selected').text.should == "Na reta final"
+    find('.sidebar .content .selected').text.should == I18n.t('explore.index.expiring')
 
     # Now I go to recent projects
     within ".sidebar .content" do
-      click_on "Recentes"
+      click_on I18n.t('explore.index.recent')
     end
     verify_translations
     within "#explore_results" do
@@ -99,11 +97,11 @@ feature "Explore projects Feature" do
         list[index].find("a")[:href].should match(/\/projects\/#{recent[index].to_param}/)
       end
     end
-    find('.sidebar .content .selected').text.should == "Recentes"
+    find('.sidebar .content .selected').text.should == I18n.t('explore.index.recent')
 
     # Now I go to successful projects
     within ".sidebar .content" do
-      click_on "Bem-sucedidos"
+      click_on I18n.t('explore.index.successful')
     end
     verify_translations
     within "#explore_results" do
@@ -112,11 +110,11 @@ feature "Explore projects Feature" do
         list[index].find("a")[:href].should match(/\/projects\/#{successful[index].to_param}/)
       end
     end
-    find('.sidebar .content .selected').text.should == "Bem-sucedidos"
+    find('.sidebar .content .selected').text.should == I18n.t('explore.index.successful')
 
     # Now I go to recommended projects again
     within ".sidebar .content" do
-      click_on "Recomendados"
+      click_on I18n.t('explore.index.recommended')
     end
     verify_translations
     within "#explore_results" do
@@ -125,7 +123,7 @@ feature "Explore projects Feature" do
         list[index].find("a")[:href].should match(/\/projects\/#{recommended[index].to_param}/)
       end
     end
-    find('.sidebar .content .selected').text.should == "Recomendados"
+    find('.sidebar .content .selected').text.should == I18n.t('explore.index.recommended')
 
     # Now I search for "eird"
     within "#header .search" do
@@ -149,7 +147,7 @@ feature "Explore projects Feature" do
     verify_translations
     within "#explore_results" do
       all(".project_box").empty?.should == true
-      page.should have_content("Ei, não encontramos nenhum projeto com o texto que você procurou. Que tal experimentar com outras palavras? =D")
+      page.should have_content(I18n.t('explore.project.empty'))
     end
     page.should have_no_css('.sidebar .content .selected')
 
@@ -169,7 +167,6 @@ feature "Explore projects Feature" do
     end
 
     visit "/pt/explore#recommended"
-    verify_translations
 
     projects = Project.visible.not_expired.recommended.order('expires_at').all
     within "#explore_results" do
@@ -178,10 +175,9 @@ feature "Explore projects Feature" do
         list[index].find("a")[:href].should match(/\/projects\/#{projects[index].to_param}/)
       end
     end
-    find('.sidebar .content .selected').text.should == "Recomendados"
+    find('.sidebar .content .selected').text.should == I18n.t('explore.index.recommended')
 
     visit "/pt/explore#expiring"
-    verify_translations
 
     projects = Project.visible.expiring.limit(16).order('expires_at').all
     within "#explore_results" do
@@ -190,10 +186,9 @@ feature "Explore projects Feature" do
         list[index].find("a")[:href].should match(/\/projects\/#{projects[index].to_param}/)
       end
     end
-    find('.sidebar .content .selected').text.should == "Na reta final"
+    find('.sidebar .content .selected').text.should == I18n.t('explore.index.expiring')
 
     visit "/pt/explore#recent"
-    verify_translations
 
     projects = Project.visible.recent.limit(16).order('created_at DESC').all
     within "#explore_results" do
@@ -202,10 +197,9 @@ feature "Explore projects Feature" do
         list[index].find("a")[:href].should match(/\/projects\/#{projects[index].to_param}/)
       end
     end
-    find('.sidebar .content .selected').text.should == "Recentes"
+    find('.sidebar .content .selected').text.should == I18n.t('explore.index.recent')
 
     visit "/pt/explore#successful"
-    verify_translations
 
     projects = Project.visible.successful.order('expires_at DESC').all
     within "#explore_results" do
@@ -214,7 +208,7 @@ feature "Explore projects Feature" do
         list[index].find("a")[:href].should match(/\/projects\/#{projects[index].to_param}/)
       end
     end
-    find('.sidebar .content .selected').text.should == "Bem-sucedidos"
+    find('.sidebar .content .selected').text.should == I18n.t('explore.index.successful')
 
   end
 

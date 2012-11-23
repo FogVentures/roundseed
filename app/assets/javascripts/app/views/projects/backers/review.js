@@ -1,6 +1,10 @@
 CATARSE.ReviewForm = Backbone.View.extend({
   el: '#review_form',
 
+  accepted_terms: function(){
+    return $('#accept').is(':checked')
+  },
+
   everything_ok: function(){
     var ok = function(id){
       var value = $(id).val()
@@ -37,7 +41,7 @@ CATARSE.ReviewForm = Backbone.View.extend({
 
     var phone_number_ok = function(){
       var value = $('#user_phone_number').val()
-      var re = /^\([0-9]{2}\)[0-9]{4}-[0-9]{4}$/
+      var re = /^\([0-9]{2}\)[0-9]{4}-[0-9]{4}[0-9_ ]?$/
       if(value.match(re)){
         $('#user_phone_number').addClass("ok").removeClass("error")
         return true
@@ -45,10 +49,6 @@ CATARSE.ReviewForm = Backbone.View.extend({
         $('#user_phone_number').addClass("error").removeClass("ok")
         return false
       }
-    };
-
-    var accepted_terms = function(){
-      return $('#accept').is(':checked')
     };
 
     var zip_code_ok = function(){
@@ -101,6 +101,8 @@ CATARSE.ReviewForm = Backbone.View.extend({
         all_ok = false
       if(!email_ok())
         all_ok = false
+      if(!phone_number_ok())
+        all_ok = false
       if(!ok('#user_address_street'))
         all_ok = false
       if(!ok('#user_address_number'))
@@ -111,7 +113,7 @@ CATARSE.ReviewForm = Backbone.View.extend({
         all_ok = false
     }
 
-    if(!accepted_terms()){
+    if(!this.accepted_terms()){
       all_ok = false;
     }
 
@@ -162,7 +164,11 @@ CATARSE.ReviewForm = Backbone.View.extend({
 
     $('#user_cpf').mask("999.999.999-99")
     $('#user_address_zip_code').mask("99999-999")
-    $('#user_phone_number').mask("(99)9999-9999")
+    $('#user_phone_number').mask("(99)9999-9999?9")
+
+    if(this.accepted_terms()){
+      this.everything_ok();
+    }
 
     var can_submit_to_moip = true;
   },

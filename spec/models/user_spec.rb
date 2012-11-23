@@ -1,11 +1,6 @@
 require 'spec_helper'
 
 describe User do
-  before do
-    Notification.stubs(:create_notification)
-    Factory(:notification_type, :name => 'project_success')
-  end
-
   let(:user){ Factory(:user, :provider => "foo", :uid => "bar") }
   let(:unfinished_project){ Factory(:project, :finished => false, :successful => true) }
   let(:successful_project){ Factory(:project, :finished => true, :successful => true) }
@@ -112,6 +107,16 @@ describe User do
   describe ".primary" do
     subject{ Factory(:user, :primary_user_id => user.id).primary }
     it{ should == user }
+  end
+
+  describe ".who_backed_project" do
+    subject{ User.who_backed_project(successful_project.id) }
+    before do
+      @backer = Factory(:backer, :confirmed => true, :project => successful_project)
+      Factory(:backer, :confirmed => true, :project => successful_project, :user => @backer.user)
+      Factory(:backer, :confirmed => false, :project => successful_project)
+    end
+    it{ should == [@backer.user] }
   end
 
   describe ".backer_totals" do

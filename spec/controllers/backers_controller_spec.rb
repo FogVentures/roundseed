@@ -4,9 +4,15 @@ describe BackersController do
   subject{ response }
   let(:project){ Factory(:project, :finished => true) }
   let(:backer){ Factory(:backer, :project => project) }
-  before{ Notification.stubs(:create_notification) }
-  before{ Factory(:notification_type, :name => 'project_success') }
+  before{ project.save! } # To activate callbacks and generate thumbnails before calling the controller
   describe "GET index" do
+    context "when format is html" do
+      before do
+        get :index, :user_id => backer.user.id, :locale => 'pt'
+      end
+      its(:status){ should == 404 }
+    end
+
     context "when user can not manage the profile or is anonymous" do
       before do
         get :index, :user_id => backer.user.id, :locale => 'pt', :format => 'json'
@@ -17,6 +23,7 @@ describe BackersController do
 
     context "when user can manage the profile" do
       before do
+
         controller.session[:user_id] = backer.user.id
         get :index, :user_id => backer.user.id, :locale => 'pt', :format => 'json'
       end

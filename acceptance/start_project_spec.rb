@@ -7,7 +7,6 @@ feature "Send Project Feature", :driver => :selenium do
   scenario "I'm not logged in and I want to send a project. It should ask for login." do
     visit homepage
     click_link 'envie'
-    verify_translations
     current_path.should == guidelines_path
   end
 
@@ -17,7 +16,6 @@ feature "Send Project Feature", :driver => :selenium do
     visit homepage
     fake_login
     click_link 'envie'
-    verify_translations
     current_path.should == guidelines_path
 
     within 'head title' do
@@ -46,6 +44,7 @@ feature "Send Project Feature", :driver => :selenium do
     end
 
     current_path.should == start_projects_path
+    Factory(:notification_type, :name => 'project_received')
 
     within '.bootstrap-form' do
       fill_in 'how_much_you_need', with: 10

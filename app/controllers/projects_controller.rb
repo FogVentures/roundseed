@@ -57,9 +57,13 @@ class ProjectsController < ApplicationController
         @last_tweets ||= []
       end
       format.json do
+        @projects = if params[:search][:name_or_headline_or_about_or_user_name_or_user_address_city_contains]
+          Project.visible.unaccent_search( params[:search][:name_or_headline_or_about_or_user_name_or_user_address_city_contains])
+        else
+          Project.visible.search(params[:search])
+        end
         # After the search params we order by ID to avoid ties and therefore duplicate items in pagination
-        @projects = Project.visible.unaccent_search( params[:search][:name_or_headline_or_about_or_user_name_or_user_address_city_contains]).order('id').page(params[:page]).per(6)
-        respond_with(@projects)
+        respond_with(@projects.order('id').page(params[:page]).per(6))
       end
     end
   end
@@ -134,6 +138,7 @@ class ProjectsController < ApplicationController
         @rewards = @project.rewards.order(:minimum_value).all
         @backers = @project.backers.confirmed.limit(12).order("confirmed_at DESC").all
         fb_admins_add(@project.user.facebook_id) if @project.user.facebook_id
+        @update = @project.updates.where(:id => params[:update_id]).first if params[:update_id].present?
       }
     rescue ActiveRecord::RecordNotFound
       return render_404

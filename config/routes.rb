@@ -1,6 +1,13 @@
+require 'sidekiq/web'
+
 Catarse::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations", :passwords => "passwords"} do
     get "/login" => "devise/sessions#new"
+  end
+
+  check_user_admin = lambda { |request| request.env["warden"].authenticate? and request.env['warden'].user.admin }
+  constraints check_user_admin do
+    mount Sidekiq::Web => '/sidekiq'
   end
 
   # Non production routes
@@ -30,6 +37,7 @@ Catarse::Application.routes.draw do
   # Static Pages
   match '/sitemap' => "static#sitemap", :as => :sitemap
   match "/guidelines" => "static#guidelines", :as => :guidelines
+  match "/guidelines_tips" => "static#guidelines_tips", :as => :guidelines_tips
   match "/faq" => "static#faq", :as => :faq
   match "/terms" => "static#terms", :as => :terms
   match "/privacy" => "static#privacy", :as => :privacy
@@ -43,6 +51,7 @@ Catarse::Application.routes.draw do
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure" => "sessions#failure"
   match "/logout" => "sessions#destroy", :as => :logout
+  resources :unsubscribes, :only => [:index, :create, :destroy]
   resources :posts, only: [:index, :create]
   resources :projects, only: [:index, :new, :create, :show] do
     resources :updates, :only => [:index, :create, :destroy]
@@ -78,6 +87,7 @@ Catarse::Application.routes.draw do
     member do
       get 'projects'
       get 'credits'
+      put 'unsubscribe_update'
     end
     post 'update_attribute_on_the_spot', :on => :collection
   end
@@ -99,6 +109,9 @@ Catarse::Application.routes.draw do
 
   namespace :adm do
     resources :backers do
+      member do
+        put 'confirm'
+      end
       collection do
         post 'update_attribute_on_the_spot'
       end

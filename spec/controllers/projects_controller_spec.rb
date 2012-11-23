@@ -2,10 +2,18 @@
 require 'spec_helper'
 
 describe ProjectsController do
+  before {Notification.unstub(:create_notification)}
   render_views
   subject{ response }
 
   describe "GET show" do
+    context "when we have update_id in the querystring" do
+      let(:project){ Factory(:project, :permalink => nil) }
+      let(:update){ Factory(:update, :project => project) }
+      before{ get :show, :id => project, :update_id => update.id, :locale => :pt }
+      it("should assign update to @update"){ assigns(:update).should == update }
+    end
+
     context "when we have permalink and do not pass permalink in the querystring" do
       let(:project){ Factory(:project, :permalink => 'test') }
       before{ get :show, :id => project, :locale => :pt }
