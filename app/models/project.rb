@@ -7,6 +7,10 @@ class Project < ActiveRecord::Base
   include ERB::Util
   include Rails.application.routes.url_helpers
 
+  delegate :display_status, :display_progress, :display_image, :display_expires_at,
+    :display_pledged, :display_goal,
+    :to => :decorator
+
   belongs_to :user
   belongs_to :category
   has_many :projects_curated_pages
@@ -63,36 +67,26 @@ class Project < ActiveRecord::Base
   validates_length_of :headline, :maximum => 140
   validates_uniqueness_of :permalink, :allow_blank => true, :allow_nil => true
   validates_format_of :permalink, with: /^(\w|-)*$/, :allow_blank => true, :allow_nil => true
-  before_create :store_image_url
-
-  def store_image_url
-    self.image_url = vimeo.thumbnail unless self.image_url
-  end
+  mount_uploader :video_thumbnail, LogoUploader
 
   def self.unaccent_search search
     joins(:user).where("unaccent(projects.name || headline || about || coalesce(users.name,'') || coalesce(users.address_city,'')) ~* unaccent(?)", search)
   end
 
+  def users_who_backed
+    User.who_backed_project(self.id)
+  end
+
+  def subscribed_users
+    User.subscribed_to_project(self.id)
+  end
+
+  def decorator
+    @decorator ||= ProjectDecorator.new(self)
+  end
+
   def to_param
     "#{self.id}-#{self.name.parameterize}"
-  end
-
-  def display_image
-    return image_url if image_url
-    return "user.png" unless vimeo.thumbnail
-    vimeo.thumbnail
-  end
-
-  def display_expires_at
-    I18n.l(expires_at.to_date)
-  end
-
-  def display_pledged
-    number_to_currency pledged, :unit => '$', :precision => 0, :delimiter => ','
-  end
-
-  def display_goal
-    number_to_currency goal, :unit => '$', :precision => 0, :delimiter => ','
   end
 
   def pledged
@@ -101,18 +95,6 @@ class Project < ActiveRecord::Base
 
   def total_backers
     project_total ? project_total.total_backers : 0
-  end
-
-  def display_status
-    if successful? and expired?
-      'successful'
-    elsif expired?
-      'expired'
-    elsif waiting_confirmation?
-      'waiting_confirmation'
-    elsif in_time?
-      'in_time'
-    end
   end
 
   def successful?
@@ -137,12 +119,6 @@ class Project < ActiveRecord::Base
     ((pledged / goal * 100).abs).round.to_i
   end
 
-  def display_progress
-    return 100 if successful?
-    return 8 if progress > 0 and progress < 8
-    progress
-  end
-
   def time_to_go
     if expires_at >= 1.day.from_now
       time = ((expires_at - Time.now).abs/60/60/24).round
@@ -163,6 +139,14 @@ class Project < ActiveRecord::Base
 
   def remaining_text
     pluralize_without_number(time_to_go[:time], I18n.t('remaining_singular'), I18n.t('remaining_plural'))
+  end
+
+  def download_video_thumbnail
+    self.video_thumbnail = open(self.vimeo.thumbnail) if self.video_url
+  rescue OpenURI::HTTPError => e
+    ::Airbrake.notify({ :error_class => "Vimeo thumbnail download", :error_message => "Vimeo thumbnail download: #{e.inspect}", :parameters => video_url}) rescue nil
+  rescue TypeError => e
+    ::Airbrake.notify({ :error_class => "Carrierwave does not like thumbnail file", :error_message => "Carrierwave does not like thumbnail file: #{e.inspect}", :parameters => video_url}) rescue nil
   end
 
   def can_back?
