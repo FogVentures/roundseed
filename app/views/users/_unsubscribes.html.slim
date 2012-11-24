@@ -4,7 +4,7 @@
   ul
     li
       .bootstrap-form
-      = semantic_form_for(@user, url: { action: "unsubscribe_update" }) do |f|
+      = semantic_form_for(@user, url: user_unsubscribes_path(user_id: @user.id), html:{ method: :post}) do |f|
         = f.inputs do
           = f.semantic_fields_for :unsubscribes, @unsubscribes do |u|
             = u.inputs do
@@ -13,7 +13,7 @@
               - else
                 = u.input :subscribed, as: :boolean, label: Project.find(u.object.project_id).name
               = u.input :project_id, as: :hidden
-              = u.input :user_id, as: :hidden
+              = u.input :user_id, as: :hidden, input_html: { class: 'akakak' }
               = u.input :notification_type_id, as: :hidden
 
         p= f.submit t('users.current_user_fields.update_social_info'), :class => 'btn', :id => "unsubscribe_submit"
