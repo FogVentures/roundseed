@@ -405,8 +405,8 @@ en:
       rewards_title: Rewards
       submit: "Submit project"
     index_header:
-      subtitle: "Your project has an amazing story, just waiting to be heard. Tell the story, engage your audience and empower them to bring your project to life!"
-      subtitle_html: "Fund projects collaboratively and become part of something bigger."
+      subtitle_html: "Your project has an amazing story, just waiting to be heard. Tell the story, engage your audience and empower them to bring your project to life!"
+      subtitle: "subtitle placeholder"
       title: "Powered by you!"
     new:
       subtitle: "The time to make it happen is now! Share with us what you're working on."
