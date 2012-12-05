@@ -495,18 +495,18 @@ pt:
         title: "Faça parte disto e compartilhe este projeto"
     start:
       about: "Descreva seu projeto e como o $ será utilizado"
-      category: "Qual é a categoria do seu projeto?"
       how_much_you_need: "Quanto você pretende arrecadar?"
       how_much_hint_html: "É importante lembrar que grande parte dos apoios virão de pessoas próximas a você (1º  e 2º nível de relacionamento): <a href='%{href}'>Clique aqui!</a> Desse modo, ao definir o valor que pretende arrecadar através do Catarse é fundamental pensar na sua capacidade de mobilizar pelo menos 50% do valor dentro da sua rede de contatos."
       how_much_important: "Lembre-se das taxas cobradas pelo Catarse: 7,5% e do meio de pagamento 5,5%. Basta dividir o seu orçamento final por 0,87."
       about_hint: "Conte-nos um pouco sobre sua inspiração para realizar o projeto, sua história e o que será entregue ao final. Seja sucinto e fuja daquelas formalidades de editais. Nada de OBJETIVO, JUSTIFICATIVA, PÚBLICO-ALVO... Presenteie seus leitores com algo que mexa com eles e seja muito transparente em relação a expectativa sobre o projeto."
       contact: "Deixe seu email para entrarmos em contato"
       links: "Mais algum link para conhecer mais sobre o seu projeto?"
-      links_hint: "Deixe-nos o máximo de links que você tiver, para que a gente possa conhecer melhor seu trabalho e seu projeto. Não precisa ser algo formal nem nada, só alguns links úteis."
+      links_hint: "Cole aqui links de vídeos, artigos, reportagens, blogs..."
+      category: "Qual é a categoria do seu projeto?"      
       tags_hint: "Antes de enviar seu projeto, explore e inspire-se com outros projetos que passaram pelo site."
       tags_important: "Confira mais projetos relacionados a sua categoria clicando <a href='%{href}'>aqui!</a>."
       video: "Já tem o video? Manda aí a url!"
-      video_hint: "Um link no vimeo"
+      video_hint: " O vídeo é a principal peça do projeto. Se ainda não tiver, não precisa enviar... Mas já vá pensando em como fazer um vídeo MATADOR!"
       social: "Canais de Mobilização"
       know_us_via: "Como você conheceu o Catarse?"
       how_works: "Como pretende mobilizar apoiadores para levantar o $ necessário para a execução?"
@@ -514,12 +514,14 @@ pt:
         content_html: "Quer aumentar a chance de seu projeto ser selecionado? Não deixe de ler %{link}."
         help_link: "nosso guia"
       rewards: "Como irá recompensar os seus apoiadores?"
-      rewards_hint: "A gente acredita que a melhor maneira de inspirar as pessoas a apoiar um projeto é oferecendo excelentes – e criativas! – recompensas. Todo mundo adora edições limitadas, coisas únicas e experiências divertidas (festas, guloseimas, viajar de balão!). Gaste um bom tempo bolando recompensas criativas e as pessoas se interessarão."
+      rewards_hint: "DIVIDA EM COTAS! A gente sabe que as recompensas ajudam o apoiador a definir com quanto ele irá apoiar o projeto. Todo mundo adora edições limitadas, coisas únicas, experiências divertidas. Gaste um bom tempo bolando as recompensas criativas."
+      rewards_important: "Não viaje nas recompensas. Pense em como irá entregá-las e coloque tudo isso no orçamento. Prometeu?! CUMPRA! :D"
       submit: "Enviar o projeto"
       send_project: "Quero enviar meu projeto."
       subtitle: "A hora para fazer acontecer é agora! Estamos loucos para saber o que você está aprontando..."
       title: "Agooora sim! Envie seu projeto, campeão."
       legend_html: "Preencha o formulário abaixo da forma mais completa objetiva, pois quanto mais completo <br>nós recebermos o seu projeto, mais rápido ele entrará na plataforma online."
+      tags_html: "Tags HTML!!! Traduzir AQUI"
     twitter:
       take_a_look: "Confira o projeto %{name} no @Catarse_"
     video_embed:
@@ -556,14 +558,16 @@ pt:
     base_url: "http://roundseed.herokuapp.com"
     blog: "http://blog.roundseed.com/"
     email:
-      contact: contato@catarse.me
-      payments: financeiro@catarse.me
-      projects: projetos@catarse.me
-      system: system@catarse.me
+      no_reply: "contact@roundseed.com"
+      contact: contact@roundseed.com
+      payments: contact@roundseed.com
+      projects: matjohnson@gmail.com
+      system: contact@roundseed.com
+      privacy: contact@roundseed.com
     facebook: "http://www.facebook.com/roundseed"
     facebook_app_id: 152699881511667
     name: RoundSeed
-    title: "A primeira plataforma de financiamento colaborativo de projetos criativos do Brasil"
+    title: "RoundSeed"
     twitter: roundseed
   static:
     faq:
@@ -614,7 +618,7 @@ pt:
       title_one: "O que te inspirou a fazer este projeto?"
       tip_one: "As pessoas só se engajam quando percebem a importância de uma causa para a sociedade ou para a pessoa que lidera uma campanha. Por isso, tenha bem claro qual é a sua inspiração e exponha isso na descrição do projeto."
       title_two: "Qual é o foco?"
-      tip_two: "O Catarse é uma ferramenta excelente pada dar o start nas suas ideias ou para encrementar seu desenvolvimento. Definir objetivamente onde você quer chegar é uma das melhores formas de mobilizar pessoas. Isso inclui conhecer bem o público que será beneficiado pela sua iniciativa"
+      tip_two: "O Catarse é uma ferramenta excelente pada dar o start nas suas ideias ou para incrementar seu desenvolvimento. Definir objetivamente onde você quer chegar é uma das melhores formas de mobilizar pessoas. Isso inclui conhecer bem o público que será beneficiado pela sua iniciativa"
       title_three: "Qual é a sua meta?"
       tip_three: "Para definir seus objetivos financeiros; levante os custos da execução da sua proposta e, procure estimar seus gastos com a produção e entrega das recompensas oferecidas. Sempre levando em conta seu  potencial de mobilização de pessoas."
       title_four: "Qual é o seu prazo de arrecadação?"
@@ -632,6 +636,44 @@ pt:
       submit: "Próximo Passo!"
       send_project: "Quero enviar meu projeto."
       guide: "Baixe aqui um guia completo com dicas estratégicas para elaborar um projeto de sucesso no Catarse."
+    guidelines_backers:
+      title: "Quero apoiar um projeto!"
+      subtitle: "Entenda passo-a-passo sobre como apoiar um projeto no Catarse."
+      introduction: "O Catarse é uma excelente maneira de se engajar em causas que você acredita."
+      legend_html: "Acreditamos que fazer parte de um projeto é daquele tipo de coisa que às vezes <br>não sabemos muito bem o porquê, mas faz um bem danado."
+      title_one: "Explore o projeto"
+      step_one: "O primeiro passo é entender o projeto. Veja o vídeo, leia a descrição, navegue pelos links. Se você tiver certeza de que esse projeto não pode ficar só no papel, avance uma casa!"
+      title_two: "Decida com quanto irá apoiar"
+      step_two: "Uma boa maneira de decidir com quanto irá apoiar é olhar recompensas que o realizador oferece em troca do seu apoio. E também o seu extrato bancário."
+      title_three: "Concretize o apoio"
+      step_three: "Preencha e revise seus dados! E decida qual a forma de pagamento que atende melhor suas necessidades."
+      title_four: "Torça junto!"
+      step_four: "Agora você está no mesmo barco que o realizador do projeto. Espalhe o projeto pelas redes e fique atento às novidades e a chamados na reta final."
+      title_requirements: "Lembre-se que o Catarse é 'tudo ou nada'"
+      sucessfull_title: "Se o projeto atingir ou superar a meta de arrecadação..."
+      sucessfull: "O projeto é considerado bem-sucedido! O realizador recebe o dinheiro e o contato de todos os apoiadores."
+      not_funded_title: "Se o projeto não atingir a meta"
+      not_funded: "Você recebe o valor do apoio integralmente na forma de créditos (para apoiar outro projeto). Se isso não te agradar, você pode solicitar o seu dinheiro de volta, segundo as regras do termo de uso (www.catarse.me/terms)."
+      more_questions: "Tô louco pra apoiar um projeto, tem mais alguma coisa que preciso saber?"
+      title_backer: "Como sei que meu apoio foi realizado com sucesso?"
+      backer: "Você receberá um email de confirmação. E fique ligado na aba de APOIADORES da página do projeto que você apoiou."
+      title_rewards: "Se o projeto for financiado, como eu recebo minhas recompensas?"
+      rewards: "É obrigação do realizador do projeto entrar em contato e combinar com você como ele irá entregar a recompensa escolhida. Se isso não acontecer, você precisa mandar email pra ele, cobrando! Se mesmo assim ele não responder...chama a gente aqui que puxamos a orelha =D"
+      title_credits: "Se o projeto não atingir a meta, como utilizo meus créditos?"
+      credits: "Você receberá seus créditos no seu perfil no Catarse. No momento em que escolher outro projeto para apoiar, na tela de selecionar a recompensa, terá um campo para utilizar o seu crédito."
+      title_money: "E se não quiser usar os créditos?"
+      money: "Sem problemas! É só entrar no seu perfil (Meus créditos) e solicitar o estorno. Se pagou com débito ou boleto, basta abrir uma conta no MOIP. Cartão de crédito, estornamos na sua próxima fatura."
+      other_backers: "QUERO MAIS! POSSO APOIAR DE OUTRAS MANEIRAS?"
+      intro: "Conheça outras formas de ajudar o projeto que você acredita a ser bem-sucedido."
+      other_one: "Traga mais dois amigos para apoiar com o mesmo valor que você apoiou."
+      other_two: "Fale para todo mundo, quando estiver no bar, sobre quão legal é o projeto que apoiou no Catarse."
+      other_three: "Tem um amigo jornalista? Cave uma matéria ou um post no blog dele sobre o projeto."
+      other_four: "Faça um vídeo de apoio ao projeto (como esse pessoal aqui ó: http://vimeo.com/46233018)."
+      other_five: "Mande um email para o realizador do projeto perguntando de qual outra forma você pode ajudar."
+      submit: "Maneiro!"
+      send_project: "Quero ter um projeto no Catarse"
+      explore_curious: "Tâmo junto!"
+      explore_projects: "Quero apoiar um projeto"
     privacy:
       title: "Política de privacidade"
     terms:
@@ -668,6 +710,7 @@ pt:
       your_reward: "Sua recompensa"
     unsubscribes:
       title: "Escolha de quais projetos você deseja receber notificações:"
+      updates: "Eu quero receber atualizações dos projetos"
     current_user_fields:
       updated: "As suas informações foram atualizadas"
       update_social_info: "Atualizar informações"

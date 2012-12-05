@@ -542,11 +542,12 @@ en:
     base_url: "http://roundseed.herokuapp.com"
     blog: "http://blog.roundseed.com/"
     email:
+      no_reply: "contact@roundseed.com"
       contact: contact@roundseed.com
-      payments: payments@roundseed.com
+      payments: contact@roundseed.com
       projects: matjohnson@gmail.com
-      system: system@roundseed.com
-      privacy: privacy@roundseed.com
+      system: contact@roundseed.com
+      privacy: contact@roundseed.com
     facebook: "http://www.facebook.com/roundseed"
     facebook_app_id: 152699881511667
     name: RoundSeed
@@ -656,6 +657,7 @@ en:
       your_reward: "Your reward"
     unsubscribes:
       title: "Choose from which projects you want to receive update notifications:"
+      updates: "I want to receive project updates"
     current_user_fields:
       updated: "Your information has been successfully updated"
       update_social_info: "Update info"
