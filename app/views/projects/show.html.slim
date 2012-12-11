@@ -170,7 +170,7 @@
         .clearfix
         - if can?(:update, @project)
           .bootstrap-twitter.bootstrap-form
-            = link_to 'Adicionar nova recompensa', 'javascript:void(0);', class: 'btn btn-success pull-right add_new_reward'
+            = link_to 'Add Reward', 'javascript:void(0);', class: 'btn btn-success pull-right add_new_reward'
             .clearfix
             .well.new_reward_content.hide
               = semantic_form_for [@project, Reward.new] do |f|
