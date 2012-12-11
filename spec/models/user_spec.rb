@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe User do
   let(:user){ Factory(:user, :provider => "foo", :uid => "bar") }
-  let(:unfinished_project){ Factory(:project, :finished => false, :successful => true) }
-  let(:successful_project){ Factory(:project, :finished => true, :successful => true) }
-  let(:failed_project){ Factory(:project, :finished => true, :successful => false) }
+  let(:unfinished_project){ Factory(:project, state: 'online') }
+  let(:successful_project){ Factory(:project, state: 'successful') }
+  let(:failed_project){ Factory(:project, state: 'failed') }
 
   describe "associations" do
     it{ should have_many :backs }
@@ -310,6 +310,7 @@ describe User do
 
   describe "#merge_into!" do
     it "should merge into another account, taking the credits, backs, projects and notifications with it" do
+      Notification.any_instance.stubs(:send_email)
       old_user = Factory(:user)
       new_user = Factory(:user)
       backed_project = Factory(:project)
@@ -317,8 +318,9 @@ describe User do
       new_user_back = backed_project.backers.create!(:user => new_user, :value => 10)
       old_user_project = Factory(:project, :user => old_user)
       new_user_project = Factory(:project, :user => new_user)
-      old_user_notification = old_user.notifications.create!(:text => "Foo bar")
-      new_user_notification = new_user.notifications.create!(:text => "Foo bar")
+      notification_type = Factory(:notification_type)
+      old_user_notification = old_user.notifications.create! notification_type: notification_type
+      new_user_notification = new_user.notifications.create! notification_type: notification_type
 
       old_user.backs.should == [old_user_back]
       new_user.backs.should == [new_user_back]
