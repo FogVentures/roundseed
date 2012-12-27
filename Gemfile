@@ -48,7 +48,7 @@ gem "airbrake"
 
 # Email marketing
 #gem 'mailchimp'
-gem 'catarse_mailchimp'
+gem 'catarse_mailchimp', git: 'git://github.com/devton/catarse_mailchimp'
 
 # HTML manipulation and formatting
 gem 'formtastic', "~> 2.1.1"
@@ -88,6 +88,7 @@ gem 'activeadmin', git: 'git://github.com/gregbell/active_admin.git'
 gem "meta_search", "1.1.3"
 
 # Payment
+gem 'activemerchant', '1.17.0', require: 'active_merchant'
 gem 'httpclient', '2.2.5'
 gem 'selenium-webdriver', '~> 2.25.0'
 

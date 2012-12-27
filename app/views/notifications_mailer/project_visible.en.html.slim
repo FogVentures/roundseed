@@ -1,0 +1,35 @@
+- project = @notification.project
+|Hi, #{project.user.display_name}.
+br
+br
+|Your project is online and ready to receive pledges, now is the time!
+br
+br
+|#{link_to(project.name, "#{I18n.t('site.base_url')}/projects/#{project.to_param}")}
+br
+br
+|Let's make that green bar go up :D
+br
+br
+|#{link_to('Here','https://docs.google.com/document/d/1Uwg8aRj9LyOE-MU1HOL02HxsVYNXyZcR11dbLRE8Y3c/edit')} we have some tips about how to promote your project. The document is open, so feel free to include your own experience =)
+br
+br
+'Any questions about
+strong transactions
+|, either while the project is online, or about transfering the funds after the project has ended, or even about refunds (we hope not!), send an email to #{mail_to 'financeiro@catarse.me'}
+br
+br
+'For questions about
+strong editing
+|your project, send an email to #{mail_to 'projetos@catarse.me'}
+br
+br
+'To send promotional material to our social medias, Facebook and Twitter, send an email to #{mail_to 'comunicacao@catarse.me'}. There we can discuss communication strategies and how to act during your campaign. Use with
+strong moderation
+|! Remember that you are responsible for your project promotion, and that the majority of results will come from your own network of people, we can only provide a little guidance. ;)
+br
+br
+|A big hug and welcome o/
+br
+br
+|Catarse Team

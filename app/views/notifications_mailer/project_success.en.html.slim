@@ -1,0 +1,38 @@
+- project = @notification.project
+|Hi #{project.user.name},
+br
+|First of all, congratulations for you successful project! =D
+br
+br
+|With this message we begin the process of transfering the pledged ammount to you. It's all explained below in 5 steps:
+br
+br
+|1 - You need to create a MoiP account, our financial partner. To create an account visit their website (#{link_to 'http://www.moip.com.br', 'http://www.moip.com.br'}) and create a Seller's Account.
+br
+br
+|It's important that the CPF/CNPJ  on your MoiP account be the same as the holder's bank account. In case you have any doubt in this process, send an email to #{mail_to 'financeiro@catarse.me'} with the subject: “Dúvida para criação de conta MoIP para o projeto #{project.name}”.
+br
+br
+|2 - After the account has been created, please send an email to #{mail_to 'financeiro@catarse.me'} with the subject “Conta MOIP do projeto #{project.name}”, and you MoiP login on the email body.
+br
+br
+|3 - We will send you a spread sheet with all the backers information (name, reward, address, etc.) in up to 4 working days after the project deadline (this wait is due to the time it takes for the bank slips to be paid and received, if it they were issued just before the deadline). In this spread sheet we will also highlight Catarse and the payment service provider's fee for all transactions.
+br
+br
+|4 - Furthermore, we will need some information for the Catarse service invoice (7,5% fee), ok? For this, you will need to fill the form below:
+br
+br
+= link_to "https://docs.google.com/a/catarse.me/spreadsheet/viewform?formkey=dDR5Njdsd3AwMXppVjRTd296MWhQclE6MQ#gid=0", "https://docs.google.com/a/catarse.me/spreadsheet/viewform?formkey=dDR5Njdsd3AwMXppVjRTd296MWhQclE6MQ#gid=0"
+
+br
+br
+|5 - We will send you the invoice in up to 5 working days after the project deadline, ok?
+br
+br
+|Any other questions, please send an email to contato@catarse.me .
+br
+br
+|A big hug,
+br
+br
+|Catarse Team

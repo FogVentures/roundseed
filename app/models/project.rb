@@ -10,13 +10,13 @@ class Project < ActiveRecord::Base
   include PgSearch
 
   before_save do
-    unless expires_at.present?
-      expires_at = DateTime.now+(online_days.days rescue 0)
+    if online_days_changed? || !expires_at.present?
+      self.expires_at = DateTime.now+(online_days rescue 0).days
     end
   end
 
   delegate :display_status, :display_progress, :display_image, :display_expires_at,
-    :display_pledged, :display_goal,
+    :display_pledged, :display_goal, :remaining_days,
     :to => :decorator
 
   belongs_to :user
@@ -76,6 +76,9 @@ class Project < ActiveRecord::Base
   }
   scope :recent_for_home, ->(exclude_ids){
     includes(:user, :category, :project_total).where("coalesce(id NOT IN (?), true)", exclude_ids).visible.recent.not_expiring.order('date(created_at) DESC, random()').limit(3)
+  }
+  scope :backed_by, ->(user_id){
+    where("id IN (SELECT project_id FROM backers b WHERE b.confirmed AND b.user_id = ?)", user_id)
   }
 
   search_methods :visible, :recommended, :expired, :not_expired, :expiring, :not_expiring, :recent, :successful

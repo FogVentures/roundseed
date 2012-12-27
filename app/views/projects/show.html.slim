@@ -34,6 +34,7 @@
     #project_description[data-project=@project.to_json]
     .project_image
       = image_tag @project.display_image, :width=>'85px', :height => '67px'
+      = best_in_place_if(can?(:update, @project, :image_url), @project, :image_url)
     .section_header
       h1
         = best_in_place_if(can?(:update, @project, :name), @project, :name)
@@ -116,7 +117,7 @@
               - bgoal = best_in_place_if(can?(:update, @project, :goal), @project, :goal, display_as: :display_goal)
               em= t('statistics.goal.subtitle', :total => bgoal).html_safe
             .item.time
-              p= @project.time_to_go[:time]
+              p= best_in_place_if can?(:update, @project, :online_days), @project, :online_days, display_as: :remaining_days
               em #{@project.time_to_go[:unit].capitalize} #{pluralize_without_number(@project.time_to_go[:time], t('remaining_singular'), t('remaining_plural'))}
 
           #condition[class="#{@project.display_status}"]
