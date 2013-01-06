@@ -87,6 +87,8 @@ en:
         user_id: "User Id"
         video_url: "Video URL"
         permalink: 'type you project URL ( http://roundseed.com/myprojectname )'
+        how_know: 'How did you meet Catarse?'
+        more_linkt: 'Where can we find more about you and your project?'
       reward:
         description: Description
         maximum_backers: "Maximum backers"
@@ -99,14 +101,15 @@ en:
         address_state: State
         address_street: Street
         address_zip_code: "Zip code"
-        cpf: CPF
+        cpf: 'CPF / CNPJ'
+        moip_login: 'MoIP Login'
         current_password: "Current password"
         email: Email
-        full_name: "Full name"
+        full_name: "Full name / Company Name"
         name: Name
         password: Password
         password_confirmation: "Password Confirmation"
-        phone_number: "Mobile phone number"
+        phone_number: "Mobile phone number (Brazil only)"
     models:
       backer: Backer
       category: Category
@@ -398,6 +401,7 @@ en:
     create:
       success: "Your project was successfully created! We'll soon contact you. Thanks a lot!"
     form:
+      permalink_hint: 'Simplify the URL of your project. Think that your sponsor need to remember the address to share your project.'
       add_reward: "Add reward"
       important_html: "Please notice that RoundSeed will charge 4% if your project is successful, and our payment gateway (Paypal) charges a fee that varies, usually, from 3% to 3.5% per transaction. Add this values to your budget in order to execute your project with no surprises."
       project_warning:
@@ -484,13 +488,13 @@ en:
         link: Link
         link_title: "Share the link"
         take_a_look: "Check out the project"
-        title: "Become a part of this project and share, and share alike."
-    start:
-      about: "Describe your project and your fundraising goals."
-      category: "Project Category"
-      how_much_you_need: "What is your fundraising goal?"
-      about_hint: "Tell us a little about your project, what it is, how much you're wanting to raise and what the funds will be used for. Be brief and punctual, but don't forget to give to tell your unique story that moves your audience. Your project is your creation, and they will want to experience your passion!"
-      contact: "Leave us your email address so we can contact you."
+        title: "Be part of it and share this project"
+    new:
+      about: "Describe your project and how much do you need"
+      category: "Project category"
+      how_much_you_need: "How much do you want to raise?"
+      about_hint: "Tell us a little about what you want to do, how much you need and what for. Be brief and punctual, but don't forget to give the readers something that moves them. After all, it's your creation and they need to see your passion taking place!"
+      contact: "Leave us your email address so we can contact you"
       links: "Where can we find more about you and your project?"
       links_hint: "Leave us as many links as you have. They help us get to know your work and your project better. They don't have to be something formal or fancy, just a few useful links."
       video: "Does your project already have a video?"
@@ -591,7 +595,7 @@ en:
       title_work: "Does it take a lot of work?"
       work: "A loooot! There is no 'easy money on the INTERNET'. You will have to work a lot during your project, but the experience will be worth it - we assure you :D And you will have a much stronger network behind your project after Catarse."
       title_costs: "How much does it cost to use Catarse?"
-      costs: "Submitting your project is free. Now, when your project is approved and has reached its goal, Catarse will apply a 7.5% fee to the total collected. Moreover, the payment processing fee is  5.5%. So, in total, the fee is 13%."
+      costs: "Submitting your project is free. Now, when your project is approved and has reached its goal, RoundSeed will apply a fee up to 7.5% to the total collected. Moreover, the payment processing fee up to 3.5%. So, in total, the fee is 7.5%."
       why: "Why RoundSeed?"
       intro: "First of all, it's good that you know why we believe that this new way to finance projects is phenomenal:"
       why_one: "By creating a very strong bond with your network, this kind of campaign open doors to new projects, partnerships and other unexpected connections."
