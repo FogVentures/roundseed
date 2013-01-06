@@ -11,14 +11,14 @@ en:
       subject: "Projeto bem-sucedido: algumas informações necessárias"
       header: "Projeto bem-sucedido o/"
     project_unsuccessful:
-      subject: "O seu projeto não foi financiado no Catarse, mas gostaríamos de um feedback x)"
-      header: "Projeto não financiado não é projeto mal-sucedido ;)"
+      subject: "Your project did not fund on RoundSeed."
+      header: "Unfortunately, your RoundSeed did reach its funding goal."
     backer_project_successful:
-      subject: "Uhuu! O projeto %{project_name} foi bem-sucedido no Catarse"
-      header: "Uhuu! O projeto que você apoiou foi bem-sucedido no Catarse!"
+      subject: "Woo-hoo! Your project %{project_name} was successfuly funded on RoundSeed"
+      header: "Woo-hoo! You funded your project on RoundSeed!"
     backer_project_unsuccessful:
-      subject: "O projeto %{project_name} não foi financiado - algumas informações úteis"
-      header: "Informações sobre créditos e reembolso ;)"
+      subject: "The project %{project_name} didn't reach its goal."
+      header: "Here is some information about RoundSeed credits and getting reimbursed."
     project_received:
-      subject: "O seu projeto foi recebido pelo Catarse"
-      header: "O seu projeto foi recebido pela equipe de atendimento do Catarse"
+      subject: "Your Project was received by RoundSeed."
+      header: "We received your project submitted to RoundSeed. Now what?"
