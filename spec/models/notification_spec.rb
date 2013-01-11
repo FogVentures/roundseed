@@ -13,7 +13,7 @@ describe Notification do
   before do
     Notification.unstub(:create_notification)
     Notification.unstub(:create_notification_once)
-    ActionMailer::Base.deliveries.clear 
+    ActionMailer::Base.deliveries.clear
   end
 
   describe "#send_email" do

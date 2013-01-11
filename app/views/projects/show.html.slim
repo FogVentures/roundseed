@@ -29,15 +29,14 @@
           .alert.alert-warning
             = t('.rejected')
         - else
-          .alert.alert-warning
-            = t('.waiting')
+          - if can? :update, @project
+            .alert.alert-warning
+              = t('.waiting_owner')
     #project_description[data-project=@project.to_json]
     .project_image
       = image_tag @project.display_image, :width=>'85px', :height => '67px'
-      = best_in_place_if(can?(:update, @project, :image_url), @project, :image_url)
     .section_header
-      h1
-        = best_in_place_if(can?(:update, @project, :name), @project, :name)
+      h1= @project.name
       h4= t('projects.project_header.without_city', :category_name => link_to(@project.category.name, explore_path(:anchor => @project.category.name.parameterize)), :author => link_to(@project.user.display_name, user_path(@project.user))).html_safe
     .tab_container
       nav#project_menu
@@ -54,8 +53,44 @@
           | &nbsp; (
           fb:comments-count href="#{request.url}"
           | )
+        - if can? :update, @project
+          = link_to '#edit', :id => 'edit_link' do
+            = t('.menu.edit')
     .main
       #project_content
+        - if can? :update, @project
+          #project_edit.content.hide
+            .bootstrap-twitter
+              .alert.alert-info
+                p style='margin-bottom: 0; padding-bottom: 0;'
+                  = "Para saber tudo sobre como estruturar o seu projeto, baixe o #{link_to 'GUIA COMPLETO', 'http://catarse.me/guia_realizadores.pdf', target: '_blank'}".html_safe
+            .bootstrap-form
+              = semantic_form_for @project do |form|
+                = form.inputs do
+                  - if current_user.admin
+                    = form.input :expires_at, as: :string
+                    = form.input :user_id
+                  - if can? :update, :name, @project
+                    = form.input :name, as: :string, required: false
+                  - if can? :update, :headline, @project
+                    = form.input :headline, as: :string, required: false
+                  - if can? :update, :category, @project
+                    = form.input :category, as: :select, required: false
+                  - if can? :update, :video_url, @project
+                    = form.input :video_url, as: :string, hint: t('formtastic.hints.project.video_url_edit'),required: false
+                  - if can? :update, :uploaded_image, @project
+                    = form.input :uploaded_image, as: :file, required: false
+                  - if can? :update, :image_url, @project
+                    = form.input :image_url, as: :string, required: false
+                  - if can? :update, :online_days, @project
+                    = form.input :online_days, as: :number, required: false
+                  - if can? :update, :goal, @project
+                    = form.input :goal, as: :number, required: false
+                  - if can? :update, :about, @project
+                    = form.input :about, required: false
+                  .clearfix
+                  .form-actions.bootstrap-twitter
+                    = form.submit class: 'btn'
         #project_updates.content.hide
           - if can? :update, @project
             .bootstrap-form
@@ -77,11 +112,7 @@
         #project_about.content
           .midia
             .video
-              - if can?(:update, @project, :video_url)
-                p
-                  = best_in_place_if(can?(:update, @project, :video_url), @project, :video_url)
-              #iframeVideo
-              /iframe src="#{@project.vimeo.embed_url}?title=0&amp;byline=0&amp;portrait=0&amp" width="640" height="430" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen
+              iframe src="#{@project.vimeo.embed_url}?title=0&amp;byline=0&amp;portrait=0&amp" width="640" height="430" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen
             .social
               #project_share
                 - if @project.permalink
@@ -100,8 +131,7 @@
           .text
             h5= t('.about_title')
             p
-              = best_in_place_if(can?(:update, @project), @project, :about, type: :textarea)
-              = render "admin_fields" if current_user and current_user.admin
+              = @project.about_html.html_safe
         .clearfix
         #loading= image_tag "loading.gif"
       .clearfix
@@ -114,10 +144,9 @@
               em= t('statistics.backers.subtitle')
             .item.goal
               p= @project.display_pledged
-              - bgoal = best_in_place_if(can?(:update, @project, :goal), @project, :goal, display_as: :display_goal)
-              em= t('statistics.goal.subtitle', :total => bgoal).html_safe
+              em= t('statistics.goal.subtitle', :total => @project.display_goal).html_safe
             .item.time
-              p= best_in_place_if can?(:update, @project, :online_days), @project, :online_days, display_as: :remaining_days
+              p= @project.remaining_days
               em #{@project.time_to_go[:unit].capitalize} #{pluralize_without_number(@project.time_to_go[:time], t('remaining_singular'), t('remaining_plural'))}
 
           #condition[class="#{@project.display_status}"]
@@ -169,7 +198,12 @@
         .clearfix
         - if can?(:update, @project)
           .bootstrap-twitter.bootstrap-form
-            = link_to 'Add Reward', 'javascript:void(0);', class: 'btn btn-success pull-right add_new_reward'
+            .alert.alert-info
+              h4.alert-header= t('.no_rewards_warning_title')
+              p style="margin:0; padding:0;"
+                = t('.no_rewards_warning')
+            .clearfix
+            = link_to t('.menu.add_reward'), 'javascript:void(0);', class: 'btn btn-success pull-right add_new_reward'
             .clearfix
             .well.new_reward_content.hide
               = semantic_form_for [@project, Reward.new] do |f|
@@ -179,25 +213,40 @@
                 = f.submit :class => 'btn'
         #rewards
           - @rewards.each do |reward|
+
             div[id="reward_#{reward.id}" class="box #{(can?(:update, reward) ? 'clickable_owner' : '')} #{(@project.can_back? && !reward.sold_out? && !can?(:update, reward)  ? 'clickable'  : '' )}"]
-              - if can?(:destroy, reward)
-                .bootstrap-twitter
-                  = link_to [@project, reward], class: 'btn btn-mini pull-right btn-danger', style: 'margin-right: -17px;', method: :delete, confirm: 'You are sure?' do
-                    i.icon-trash.icon-white
+              - if can?(:update, reward)
+                .hide id="reward#{reward.id}Editor"
+                  .bootstrap-form
+                    = semantic_form_for [@project, reward] do |f|
+                      - if can? :update, :minimum_value, reward
+                        = f.input :minimum_value
+                      - if can? :update, :description, reward
+                        = f.input :description
+                      - if can? :update, :maximum_backers, reward
+                        = f.input :maximum_backers
+                      .bootstrap-twitter
+                        = f.submit :class => 'btn'
+
+                      .clearfix.bootstrap-twitter
+                        = link_to [@project, reward], class: 'btn btn-danger', style: 'margin-top: 20px;',method: :delete, confirm: 'You are sure?' do
+                          i.icon-trash.icon-white
+                - if can?(:destroy, reward)
+                  .bootstrap-twitter
+                    = link_to "#reward#{reward.id}Editor", :class => 'edit_reward btn btn-mini pull-right btn-primary', :style =>'margin-right: -17px;' do
+                      i.icon-pencil.icon-white
+
+
               = hidden_field_tag 'url', "#{new_project_backer_path(@project)}/?reward_id=#{reward.id}"
               - if reward.sold_out?
                 span.icon.sold_out
               - else
                 span.icon.avaliable
-              - bip_on_value = best_in_place_if(can?(:update, reward, :minimum_value), reward, :minimum_value, path: [@project, reward], display_as: :display_minimum)
-              h2= t('projects.rewards.reward_title', :minimum => bip_on_value).html_safe
+              h2= t('projects.rewards.reward_title', :minimum => reward.display_minimum).html_safe
               em= pluralize(reward.backers.confirmed.count, t('backer_singular'), t('backer_plural'))
               .clearfix
               p
-                - if can?(:update, reward)
-                  = best_in_place_if(can?(:update, reward), reward, :description, path: [@project, reward], type: :textarea)
-                - else
-                  = reward.display_description
+                = reward.display_description
               - if reward.maximum_backers
                 .maximum_backers.clearfix
                   - if reward.sold_out?
@@ -208,10 +257,6 @@
                       - bir = best_in_place_if(can?(:update, reward, :maximum_backers), reward, :maximum_backers, path: [@project, reward])
                       = t('reward.display_remaining', :remaining => reward.remaining, :maximum => bir).html_safe
                 .clearfix
-              - elsif can?(:update, reward)
-                .maximum_backers.add_limit.clearfix
-                  div style="padding-top: 20px;"
-                    = best_in_place_if(can?(:update, reward, :maximum_backers), reward, :maximum_backers, path: [@project, reward], nil: 'Adicionar Limite' )
 
 
           .clearfix

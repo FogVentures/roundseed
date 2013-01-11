@@ -3,7 +3,14 @@ class ProjectObserver < ActiveRecord::Observer
 
   def before_save(project)
     #Notification.create_notification(:project_visible, project.user, project: project) if (project.visible_was == false) && (project.visible == true)
-    project.download_video_thumbnail if project.video_url_changed?
+    project.download_video_thumbnail if project.video_url.present? && project.video_url_changed?
+  end
+
+  def after_create(project)
+    Notification.create_notification_once(:new_draft_project,
+      User.find_by_email(Configuration[:email_projects]),
+      {project_id: project.id},
+      project: project)
   end
 
   def notify_owner_that_project_is_online(project)

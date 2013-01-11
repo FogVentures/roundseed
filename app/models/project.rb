@@ -10,10 +10,12 @@ class Project < ActiveRecord::Base
   include PgSearch
 
   before_save do
-    if online_days_changed? || !expires_at.present?
+    if online_days_changed? || !self.expires_at.present?
       self.expires_at = DateTime.now+(online_days rescue 0).days
     end
   end
+
+  mount_uploader :uploaded_image, LogoUploader
 
   delegate :display_status, :display_progress, :display_image, :display_expires_at,
     :display_pledged, :display_goal, :remaining_days,
@@ -83,7 +85,8 @@ class Project < ActiveRecord::Base
 
   search_methods :visible, :recommended, :expired, :not_expired, :expiring, :not_expiring, :recent, :successful
 
-  validates_presence_of :name, :user, :category, :about, :headline, :goal, :video_url
+  validates :video_url, presence: true, if: ->(p) { p.state_name != 'draft' && p.state_name != 'rejected' }
+  validates_presence_of :name, :user, :category, :about, :headline, :goal
   validates_length_of :headline, :maximum => 140
   validates_uniqueness_of :permalink, :allow_blank => true, :allow_nil => true
   validates_format_of :permalink, with: /^(\w|-)*$/, :allow_blank => true, :allow_nil => true
@@ -136,7 +139,7 @@ class Project < ActiveRecord::Base
 
   def waiting_confirmation?
     return false if finished or successful?
-    expired? and Time.now < 3.weekdays_from(expires_at)
+    expired? and Time.now < 4.weekdays_from(expires_at)
   end
 
   def in_time?
@@ -197,7 +200,7 @@ class Project < ActiveRecord::Base
       remaining_text: remaining_text,
       embed_url: vimeo.embed_url,
       url: (self.permalink.blank? ? "/projects/#{self.to_param}" : '/' + self.permalink),
-      full_uri: I18n.t('site.base_url') + (self.permalink.blank? ? Rails.application.routes.url_helpers.project_path(self) : '/' + self.permalink),
+      full_uri: ::Configuration[:base_url] + (self.permalink.blank? ? Rails.application.routes.url_helpers.project_path(self) : '/' + self.permalink),
       expired: expired?,
       successful: successful? || reached_goal?,
       waiting_confirmation: waiting_confirmation?,
@@ -208,7 +211,7 @@ class Project < ActiveRecord::Base
   end
 
   def in_time_to_wait?
-    Time.now < 3.weekdays_from(expires_at)
+    Time.now < 4.weekdays_from(expires_at)
   end
 
   #NOTE: state machine things

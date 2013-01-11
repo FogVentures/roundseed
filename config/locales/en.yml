@@ -1,9 +1,11 @@
 en:
+  facebook_locale: 'en_US'
   or: or
   newsletter_ok_header: "You are subscribed to the newsletter!"
   newsletter_ok_body: "Woo-hoo! Thanks for subscribing!"
   newsletter_error_header: "Whoops! There was an error."
   newsletter_error_body: "Your email couldn't be added to the newsletter. Please try again later."
+  newsletter_subscribe: "subscribe"
   views:
     pagination:
       next: next
@@ -48,9 +50,8 @@ en:
     titles:
       blog: "Blog Bursts!"
       facebook: "Connect with Us!"
-      twitter: "@roundseed"
       newsletter: "Get the newsletter!"
-
+      schedule: calendar
     buttons:
       newsletter: submit!
   sections:
@@ -240,13 +241,14 @@ en:
         credits: "You have <strong>%{credits}</strong> in credits and can back with up to this amount without needing to make a new payment."
         value: "You chose the amount ;) starting with $10, any amount is great."
       project:
-        about: "Tell us a little about what you want to do, how much you need and what for. Be brief and punctual, but don't forget to give the readers something that moves them. After all, it's your creation and they need to see your passion taking place!"
-        category: "Choose in which category you want your project to appear. Don't worry if you think it fits in more than one. Choose the one where you want people to find your project."
+        video_url_edit: 'Paste here the URL of your video at vimeo.com'
+        about: "Tell us about what inspired you to come up with this project . Be objective end charming, present your readers with something that moves them while being very transparent over the expectations on your project!"
+        category: "Before you format your project explore other (successful) projects to inspire yourself!"
         expires_at: "Finally, choose how long you want your campaign to last. Again, this is a strategic choice: if you put a lot of time, people will lose interest along the way; if put too little, you may not reach the minimum in time."
         online_days: "Finally, choose how long you want your campaign to last. Again, this is a strategic choice: if you put a lot of time, people will lose interest along the way; if put too little, you may not reach the minimum in time."
-        goal: "Think hard about the amount you will ask for. It should be the <strong>minimum necessary for the project to happen</strong>. Nothing more, nothing less. If you ask too much, your chances of reaching the minimum will be lower; if you don't ask for enough, you won't be able to execute the project and consequently will have your reputation damaged, hindering future achievements."
+        goal: "Values in reais (R$)"
         headline: "Summarize your project in 140 characters. This sentence will be the first contact people will have with your project, before even seeing the video. Be creative, clear and direct :)"
-        name: "What's the name of your project? Choose with care, because this will influence the chances of your project reaching the goal."
+        name: "Be as objective as you can. Leave explanations for the About section."
         video_url: "Paste the URL from a <a href=\"http://vimeo.com\" target=\"_blank\">Vimeo</a> video. We chose Vimeo because it looks better and doesn't have ads. This way, your project will look better too! <strong>Produce your video the best you can and make a video specifically for your campaign</strong>. If there is a single thing that differentiates the projects that reach the goal from the others is the video. Observe ;)"
       reward:
         description: "Describe your reward in a way that arouses people's interest to back the project. Don't be shy!"
@@ -261,10 +263,13 @@ en:
       comment:
         comment: "Leave your comment about this project"
       project:
-        about: "About your project"
+        category: 'Category'
+        about: "About your project. How will you spend this money?"
         expires_at: "What's the deadline to reach your goal?"
-        goal: "How much do you need?"
-        name: "Name your project"
+        goal: "How much do you intend to raise? (use only numbers)"
+        name: "Project's Name"
+        image_url: 'Thumbnail of project'
+        online_days: 'How Many Campaign Days?'
         video_url: Video
       reward:
         maximum_backers: "Maximum backers (optional)"
@@ -476,12 +481,17 @@ en:
     show:
       rejected: "This project was not selected to participate on RoundSeed. Maybe next time! :)"
       waiting: "This project is just waiting to be reviewed before going live on RoundSeed ;)"
+      waiting_owner: "To edit the project info, click on 'Edit project' tab. The rewards you can edit on reward column."
       about_title: "About this project"
+      no_rewards_warning_title: 'Create here your rewards'
+      no_rewards_warning: "Don't go nuts! Think about how you're going to deliver them and include those costs in your budget. People are putting their trust in you, don't kid around with that!"
       menu:
         about: About
         backers: Backers
         comments: Comments
         updates: Updates
+        edit: Edit
+        add_reward: 'Add Rewards'
       share:
         embed: embed
         embed_title: "Embed this project on your site"
@@ -544,21 +554,8 @@ en:
     failure:
       error: "There was an error while logging in. Try again."
   site:
-    host: roundseed.herokuapp.com
-    base_url: "http://roundseed.herokuapp.com"
-    blog: "http://blog.roundseed.com/"
-    email:
-      no_reply: "contact@roundseed.com"
-      contact: contact@roundseed.com
-      payments: contact@roundseed.com
-      projects: matjohnson@gmail.com
-      system: contact@roundseed.com
-      privacy: contact@roundseed.com
-    facebook: "http://www.facebook.com/roundseed"
-    facebook_app_id: 152699881511667
     name: RoundSeed
-    title: "RoundSeed"
-    twitter: roundseed
+    title: "Powered by you!"
   static:
     faq:
       subtitle: "Quickly find answers to the most frequent questions."
