@@ -607,26 +607,8 @@ pt:
     failure:
       error: "Ocorreu um erro ao realizar o login. Por favor, tente novamente."
   site:
-<<<<<<< HEAD
-    host: roundseed.herokuapp.com
-    base_url: "http://roundseed.herokuapp.com"
-    blog: "http://blog.roundseed.com/"
-    email:
-      no_reply: "contact@roundseed.com"
-      contact: contact@roundseed.com
-      payments: contact@roundseed.com
-      projects: matjohnson@gmail.com
-      system: contact@roundseed.com
-      privacy: contact@roundseed.com
-    facebook: "http://www.facebook.com/roundseed"
-    facebook_app_id: 152699881511667
     name: RoundSeed
-    title: "RoundSeed"
-    twitter: roundseed
-=======
-    name: Catarse
-    title: "A maior comunidade de crowdfunding do Brasil!"
->>>>>>> upstream/master
+    title: "Powered by you!"
   static:
     faq:
       title: "Perguntas frequentes"
