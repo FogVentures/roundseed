@@ -165,19 +165,21 @@
           float: left
           padding-top: 30px
           margin-top: 10px
-
+          position: relative
+          .flag
+            background: url($images_path+'project_about.png') left top no-repeat
+            width: 10px
+            height: 40px
+            float: left
           h5
             font-family: "OpenSans-Regular"
-            padding-bottom: 20px
-            width: 100%
             float: left
             color: white
             font-size: 14px
             text-transform: uppercase
-            text-indent: 20px
-            padding-top: 8px
-            height: 32px
-            background: url($images_path+'project_about.png') left top no-repeat
+            height: 23px
+            padding: 8px 20px 0 10px
+            background: #EE5192
           p
             line-height: 170%
             margin: 20px 0
@@ -392,9 +394,10 @@
             font-family: Arial
             font-size: 16px
             color: #444
-            padding-left: 70px
+            padding-left: 65px
             margin-bottom: 20px
             p
+              white-space: nowrap
               font-family: "Lato-Bold"
               font-size: 36px
               color: #444
