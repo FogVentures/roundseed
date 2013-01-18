@@ -44,6 +44,7 @@ pt:
     links:
       how_works: "Ajuda"
       faq: FAQ
+      about: "Quem Somos"
       terms: "Termos de Uso"
       policy: "Política de Privacidade"
       contact: Contato
@@ -258,12 +259,11 @@ pt:
         goal: "É importante lembrar que grande parte dos apoios virão de pessoas próximas a você (1º e 2º nível de relacionamento): Clique aqui! Desse modo, ao definir o valor que pretende arrecadar através do Catarse é fundamental pensar na sua capacidade de mobilizar pelo menos 50% do valor dentro da sua rede de contatos."
         headline: "Resuma em 140 caracteres o seu projeto. Esta frase será o primeiro contato das pessoas com o seu projeto, antes mesmo de ver o vídeo. Seja criativo, transparente e direto :)"
         name: "Quanto mais direto melhor. Deixe para descrever o seu projeto no Sobre e no Vídeo."
-        uploaded_image: "Aqui você faz upload de uma imagem (.jpg) com tamanho 220x172, ou se preferir, coloque o link de uma imagem no campo logo abaixo."
+        uploaded_image: "Aqui você faz upload de uma imagem (.jpg) com tamanho 220x172."
         video_url: "O vídeo é a principal peça do projeto. Se ainda não tiver, não precisa enviar... Mas já vá pensando em como fazer um vídeo MATADOR!"
         more_links: "Quais serão os canais de mobilização utilizados? (Coloque links como Facebook, Twitter, Blogs... tudo que irá te ajudar a divulgar o seu projeto)"
         online_days: "Em média os projetos ficam no ar por 40 dias."
         first_backers: "Para sua campanha ter sucesso, é fundamental trazer a sua rede de contato mais próxima. Por isso, liste aqui quem você acredita que serão seus primeiros 20 apoiadores"
-        image_url: 'Aqui você pode colar um link (.jpg) de uma imagem com tamanho 220x172. Pode subir a foto no facebook (colocar pública a todos) e colar o link dela aqui, por exemplo.'
       reward:
         description: "Descreva sua recompensa de um jeito que desperte o interesse das pessoas para apoiar o projeto. Não seja tímido!"
         maximum_backers: "Se sua recompensa é limitada, informe o máximo de pessoas."
@@ -287,7 +287,6 @@ pt:
         more_links: "Lista de Links relacionados a seu projeto *"
         first_backers: "Lista com os primeiros apoiadores *"
         how_know: "Como você conheceu o Catarse? *"
-        image_url: 'Thumbnail do projeto (link)'
       reward:
         maximum_backers: "Máximo de apoiadores (opcional)"
     optional: " (opcional)"
@@ -417,7 +416,7 @@ pt:
         title: "Preencha e revise os dados para pagamento"
         choose_payment: "Como você quer pagar?"
         choose_payment_subtitle: "Selecione abaixo uma forma de pagamento"
-        choose_credit_card: "Pagamento internacional"
+        choose_credit_card: "Pagamento internacional - PayPal"
         choose_boleto: "Pagamento nacional"
         cpf: "Para prosseguir, por favor informe:"
         payment_card: "Pagamento com Cartão"
@@ -445,6 +444,9 @@ pt:
       subtitle: "Financie projetos de maneira colaborativa e torne-se parte de algo maior. Promova uma catarse coletiva! Você é a peça que falta nesta história."
       subtitle_html: "Financie projetos de maneira colaborativa e torne-se parte de algo maior.<br/>Promova uma catarse coletiva! Você é a peça que falta nesta história."
       title: "Faça acontecer os projetos em que você acredita"
+    recommended_header:
+      guidelines: "Como Funciona"
+      guidelines_subtitle: "Entenda o Catarse"
     new:
       subtitle: "A hora para fazer acontecer é agora! Estamos loucos para saber o que você está aprontando..."
       title: "Agooora sim! Envie seu projeto, campeão."
@@ -572,9 +574,7 @@ pt:
       send_project: "Quero enviar meu projeto."
       subtitle: "A hora de montar o seu projeto é agora. Estamos loucos para saber o que você está aprontando..."
       title: "Agooora sim! Envie seu projeto, campeão."
-      legend_html: "Após preencher o formulário abaixo, você receberá uma página de projeto em rascunho. Lá você irá adicionar as recompensas e poderá compartilhar com seus amigos para ter um projeto ainda mais afiado.
-                    <br/>Lembre-se de que quanto mais consistente estiver o seu projeto nesse envio, mais rápido ele irá para o ar.
-                    <br/>IMPORTANTE: As informações preenchidas abaixo não são definitivas. Você poderá modificá-las posteriormente, ao longo do processo de curadoria... ok?"
+      legend_html: "Após preencher o formulário abaixo, você receberá uma página de projeto em rascunho. Lá você irá adicionar as recompensas e poderá compartilhar com seus amigos para ter um projeto ainda mais afiado.<br><br>As informações preenchidas abaixo não são definitivas, mas lembre-se de que quanto mais consistente estiver o seu projeto nesse envio, mais rápido ele irá para o ar.<br><br><b>Importante</b> <i> O Catarse é uma plataforma curada, o que significa que vamos avaliar o foco, a viabilidade, e a consistência do seu projeto durante o processo de Rascunho. Se entendermos que o seu projeto não está de acordo com os nossos <a href='https://docs.google.com/document/d/1Heh9LlvoSoD0lUfbmV5WlISJ3nqmGpEQiw15TBuCn-0/edit' target='_blank' >Critérios de Seleção</a>, ele poderá ser recusado pela equipe de curadores.</i>"
     twitter:
       take_a_look: "Confira o projeto %{name} no @Catarse_"
     video_embed:
@@ -725,7 +725,37 @@ pt:
       send_project: "Saiba como enviar seu projeto"
       explore_curious: "Apoiar um projeto"
       explore_projects: "Saiba como apoiar um projeto"
-
+    about:
+      title: "Quem Somos"
+      subtitle: "Conheça a galera bonita que faz a coisa toda acontecer <3"
+      introduction: "Quem são? Do que se alimentam? Como trabalham em rede? Isso tudo você vai ver, agora, no Quem Somos."
+      name_one: "Luis Otávio Ribeiro"
+      title_one: "Pescador de Projetos Matadores"
+      text_one: "Uberabense. Entusiasta da preguiça, é viciado em manter estruturas criativas funcionando e bolar encontros entre as pessoas."
+      name_two: "Diego Reeberg"
+      title_two: "Filósofo que mora em um Barril"
+      text_two: "Aprendiz de poeta, músico, bailarino de tango e viciado em Calvino e Saramago, gosta de vasculhar coisas bonitas e pessoas talentosas nos cantos empoeirados da internet."
+      name_three: "Luciana Massoni"
+      title_three: "Aprendiz de Faz Acontecer"
+      text_three: "Caiçara paulistana da gema, entusiasta da cor e do contraste. Poeta e desenhista por natureza, curiosa por cultura, curadora por acaso."
+      name_four: "Renato Garcia"
+      title_four: "Silvio Santos do Catarse"
+      text_four: "Coletivista. Acredita na colaboração de um por um, sem existência de autoridade, por um mundo mais justo. Fanático por futebol e skate. Tudo isso sempre ao som de um bom samba ou rap nacional."
+      name_five: "Rodrigo Maia"
+      title_five: "Remixador de Informações"
+      text_five: "Pragmático que ama improvisos, tem a voz grave e rompantes artísticos. Fascinado por pessoas e por todas as formas de imagens em movimento."
+      name_six: "Diogo Biazus"
+      title_six: "Arcebispo de Base de Dados"
+      text_six: "Arquiteto de Dados. Gosta de estruturas auto-explicativas, auto-referentes e auto-limpantes."
+      name_seven: "Evelise Luz"
+      title_seven: "Designer de Rodapé"
+      text_seven: "Completamente aloprada, gosta de se aventurar em livros, canta muito no chuveiro e ama explorar potes de chimia de figo."
+      name_eight: "Adriano Benin"
+      title_eight: "Programador"
+      text_eight: "Quando não está programando gosta de projetar circuitos e se arriscar no piano."
+      name_nine: "Antônio Roberto"
+      title_nine: "Bombeiro"
+      text_nine: "Um louco por desenvolvimento que vive na tonlandia :D"
 
     privacy:
       title: "Política de privacidade"
@@ -775,7 +805,7 @@ pt:
       current_password_hint: "<i>Para que a senha seja alterada você precisa confirmar a sua senha atual.</i>"
       email_hint: "Seu email será utilizado apenas para envio de comunicações do Catarse e dos projetos que você apoiar. Ele não estará visível em seu perfil. Quando você apoiar um projeto, nós daremos seu email para o dono do projeto para que ele possa providenciar as recompensas."
       email_tooltip: "Clique aqui para preencher seu email..."
-      gravatar_hint_html: "Quer mudar sua foto? Use o %{link} com seu email. É tão simples quanto enviar uma imagem e já funciona para outros sites também ;)"
+      gravatar_hint_html: "Você também pode mudar a sua foto usando o %{link} com seu email. <br>É tão simples quanto enviar uma imagem e já funciona para outros sites também ;)"
       local_avatar: "Meu avatar"
       submit_text: "Escolha sua imagem"
       submit: "Enviar"

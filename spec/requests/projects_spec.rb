@@ -5,6 +5,13 @@ require 'spec_helper'
 describe "Projects" do
   let(:project){ Factory.build(:project) }
 
+  before {
+    #NOTE: Weird bug on edit project test
+    RoutingFilter.active = true
+  }
+  before{ ::Configuration[:base_url] = 'http://catarse.me' }
+
+
   describe "home" do
     before do
       Factory(:project, state: 'online', online_days: 30)
@@ -36,6 +43,19 @@ describe "Projects" do
       check 'accept'
       click_on 'project_submit'
       #Project.first.name.should == project.name
+    end
+  end
+
+  describe "edit" do
+    let(:project) { Factory(:project, online_days: 10, state: 'online', user: current_user) }
+
+    before do
+      visit fake_login_path
+      visit project_path(project, :locale => :pt)
+    end
+
+    it 'edit tab should be present' do
+      page.should have_selector('a#edit_link')
     end
   end
 end

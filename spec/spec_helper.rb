@@ -3,7 +3,6 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'sidekiq/testing'
-require 'rake'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -22,12 +21,7 @@ RSpec.configure do |config|
   config.before(:suite) do
     ActiveRecord::Base.connection.execute "SET client_min_messages TO warning;"
     DatabaseCleaner.clean_with :truncation
-    DatabaseCleaner.strategy = :truncation, {except: %w[configurations]}
-    rake = Rake::Application.new
-    Rake.application = rake
-    rake.init
-    rake.load_rakefile
-    rake['catarse:config:load_defaults'].invoke
+    DatabaseCleaner.strategy = :truncation
   end
 
   config.before(:each) do
@@ -48,10 +42,8 @@ RSpec.configure do |config|
       c.any_instance.stubs(:render_facebook_like)
       c.any_instance.stubs(:render_twitter)
     end
-  end
-
-  config.after(:each) do
     DatabaseCleaner.clean
+    RoutingFilter.active = false # Because this issue: https://github.com/svenfuchs/routing-filter/issues/36
   end
 
   def mock_tumblr method=:two
@@ -60,7 +52,6 @@ RSpec.configure do |config|
   end
 end
 
-RoutingFilter.active = false # Because this issue: https://github.com/svenfuchs/routing-filter/issues/36
 
 
 I18n.locale = :pt

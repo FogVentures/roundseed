@@ -85,9 +85,10 @@ class Project < ActiveRecord::Base
 
   search_methods :visible, :recommended, :expired, :not_expired, :expiring, :not_expiring, :recent, :successful
 
-  validates :video_url, presence: true, if: ->(p) { p.state_name != 'draft' && p.state_name != 'rejected' }
+  validates :video_url, presence: true, if: ->(p) { p.state_name == 'online' }
   validates_presence_of :name, :user, :category, :about, :headline, :goal
   validates_length_of :headline, :maximum => 140
+  validates_numericality_of :online_days, :less_than_or_equal_to => 60
   validates_uniqueness_of :permalink, :allow_blank => true, :allow_nil => true
   validates_format_of :permalink, with: /^(\w|-)*$/, :allow_blank => true, :allow_nil => true
   mount_uploader :video_thumbnail, LogoUploader
@@ -181,8 +182,8 @@ class Project < ActiveRecord::Base
   end
 
   def can_back?
-    online?
-  end
+    (online? || successful?) && !expired?
+  end 
 
   def as_json(options={})
     {
@@ -199,8 +200,8 @@ class Project < ActiveRecord::Base
       time_to_go: time_to_go,
       remaining_text: remaining_text,
       embed_url: vimeo.embed_url,
-      url: (self.permalink.blank? ? "/projects/#{self.to_param}" : '/' + self.permalink),
-      full_uri: ::Configuration[:base_url] + (self.permalink.blank? ? Rails.application.routes.url_helpers.project_path(self) : '/' + self.permalink),
+      url: permalink ? Rails.application.routes.url_helpers.project_by_slug_path(permalink, :locale => I18n.locale) : Rails.application.routes.url_helpers.project_path(self, :locale => I18n.locale),
+      full_uri: permalink ? Rails.application.routes.url_helpers.project_by_slug_url(permalink, :locale => I18n.locale) : Rails.application.routes.url_helpers.project_url(self, :locale => I18n.locale),
       expired: expired?,
       successful: successful? || reached_goal?,
       waiting_confirmation: waiting_confirmation?,
@@ -236,12 +237,16 @@ class Project < ActiveRecord::Base
     end
 
     event :finish do
+      transition online: :successful,      if: ->(project) {
+        project.reached_goal?
+      }
+
       transition online: :waiting_funds,      if: ->(project) {
         project.expired? and project.in_time_to_wait?
       }
 
       transition waiting_funds: :successful,  if: ->(project) {
-        project.expired? and project.reached_goal? and not project.in_time_to_wait?
+        project.reached_goal?
       }
 
       transition waiting_funds: :failed,      if: ->(project) {
@@ -251,6 +256,11 @@ class Project < ActiveRecord::Base
 
     after_transition waiting_funds: [:successful, :failed], do: :after_transition_of_wainting_funds_to_successful_or_failed
     after_transition draft: :online, do: :after_transition_of_draft_to_online
+    after_transition draft: :rejected, do: :after_transition_of_draft_to_rejected
+  end
+
+  def after_transition_of_draft_to_rejected
+    notify_observers :notify_owner_that_project_is_rejected
   end
 
   def after_transition_of_wainting_funds_to_successful_or_failed
