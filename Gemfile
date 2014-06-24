@@ -1,4 +1,4 @@
-source :gemcutter
+source 'https://rubygems.org'
 source 'http://gems.github.com'
 
 gem 'rails', '3.2.11'
@@ -14,9 +14,9 @@ gem 'state_machine', require: 'state_machine/core'
 gem 'pg'
 gem 'pg_search'
 
-gem 'catarse_paypal_express', git: 'git://github.com/devton/catarse_paypal_express.git'
+gem 'catarse_paypal_express', git: 'git://github.com/catarse/catarse_paypal_express.git',  ref: 'bce4d8c'
 #gem 'catarse_paypal_express', path: '../catarse_paypal_express'
-gem 'catarse_moip', git: 'git://github.com/devton/catarse_moip.git'
+gem 'catarse_moip', git: 'git://github.com/catarse/catarse_moip.git', ref: '9ba2b2b'
 #gem 'catarse_moip', path: '../catarse_moip'
 gem 'moip', git: 'git://github.com/moiplabs/moip-ruby.git'
 
@@ -44,7 +44,7 @@ gem "airbrake"
 
 # Email marketing
 #gem 'mailchimp'
-gem 'catarse_mailchimp', git: 'git://github.com/devton/catarse_mailchimp'
+gem 'catarse_mailchimp', git: 'git://github.com/catarse/catarse_mailchimp'
 
 # HTML manipulation and formatting
 gem 'formtastic', "~> 2.1.1"
@@ -80,7 +80,7 @@ gem 'http_accept_language'
 gem 'routing-filter' #, :git => 'git://github.com/svenfuchs/routing-filter.git'
 
 # Administration
-gem 'activeadmin', git: 'git://github.com/gregbell/active_admin.git'
+#gem 'activeadmin', git: 'git://github.com/gregbell/active_admin.git'
 gem "meta_search", "1.1.3"
 
 # Payment
